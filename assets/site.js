@@ -392,39 +392,64 @@ function sortBenchmarks(rows) {
 
 const NUMERIC = /(_usd|_krw|_pct|usd_per|params|value|amount)/;
 
+function cell(c, v) {
+  if (c.endsWith("source_url") && /^https?:\/\//.test(v)) {
+    let host = v;
+    try { host = new URL(v).hostname.replace(/^www\./, ""); } catch {}
+    return el("td", {}, el("a", { href: v, rel: "noopener" }, host));
+  }
+  if (NUMERIC.test(c)) {
+    // Long plain integers get separators; anything else is shown as typed.
+    const shown = /^\d{5,}$/.test(v) ? Number(v).toLocaleString("en-US") : v;
+    return el("td", { class: "num" }, shown);
+  }
+  return el("td", {}, v);
+}
+
+function grid(cols, rows) {
+  return el("table", {},
+    el("thead", {}, el("tr", {}, cols.map((c) => el("th", { scope: "col" }, c.replace(/_/g, " "))))),
+    el("tbody", {}, rows.map((r) => el("tr", {}, cols.map((c) => cell(c, r[c])))))
+  );
+}
+
+// Benchmarks: one tab per benchmark, in the chart's order, best score first.
+function benchmarkTabs(data) {
+  const names = [...new Set(sortBenchmarks(data.rows).map((r) => r.benchmark))];
+  const label = (b) => (BENCH_ORDER.find(([n]) => n === b) || [b, b])[1];
+  const cols = ["score", "model", "weights", "org", "country", "measured_by", "setting", "date", "source_url", "notes"]
+    .filter((c) => data.columns.includes(c));
+  const panel = el("div", { class: "table-wrap", role: "tabpanel" });
+  const tabs = names.map((b, i) =>
+    el("button", { class: "tab", role: "tab", type: "button", "aria-selected": i === 0 ? "true" : "false", "data-b": b }, label(b))
+  );
+  const show = (b) => {
+    for (const t of tabs) t.setAttribute("aria-selected", t.dataset.b === b ? "true" : "false");
+    const rows = data.rows.filter((r) => r.benchmark === b).sort((x, y) => num(y.score) - num(x.score));
+    panel.replaceChildren(grid(cols, rows));
+    panel.setAttribute("aria-label", label(b));
+  };
+  const bar = el("div", { class: "tabs", role: "tablist", "aria-label": "Benchmark" }, tabs);
+  bar.addEventListener("click", (e) => {
+    const t = e.target.closest(".tab");
+    if (t) show(t.dataset.b);
+  });
+  show(names[0]);
+  return [bar, panel];
+}
+
 function table(spec, data) {
   const head = el("div", { class: "table-head" },
     el("h3", {}, `${spec.title} `, el("span", { class: "meta" }, `(${data.rows.length} ${data.rows.length === 1 ? "row" : "rows"})`)),
     el("a", { href: `data/${spec.file}.csv`, download: "" }, "Download CSV")
   );
-  let body;
   if (!data.rows.length) {
-    body = empty("No rows yet.");
-  } else {
-    const lead = spec.file === "benchmarks" ? ["benchmark", "score", "model", "weights"] : [];
-    const cols = [...lead.filter((c) => data.columns.includes(c)), ...data.columns.filter((c) => !lead.includes(c))];
-    const rows = spec.file === "benchmarks" ? sortBenchmarks(data.rows) : data.rows;
-    body = el("table", {},
-      el("thead", {}, el("tr", {}, cols.map((c) => el("th", { scope: "col" }, c.replace(/_/g, " "))))),
-      el("tbody", {}, rows.map((r) =>
-        el("tr", {}, cols.map((c) => {
-          const v = r[c];
-          if (c.endsWith("source_url") && /^https?:\/\//.test(v)) {
-            let host = v;
-            try { host = new URL(v).hostname.replace(/^www\./, ""); } catch {}
-            return el("td", {}, el("a", { href: v, rel: "noopener" }, host));
-          }
-          if (NUMERIC.test(c)) {
-            // Long plain integers get separators; anything else is shown as typed.
-            const shown = /^\d{5,}$/.test(v) ? Number(v).toLocaleString("en-US") : v;
-            return el("td", { class: "num" }, shown);
-          }
-          return el("td", {}, v);
-        }))
-      ))
-    );
+    return el("div", { class: "table-block" }, head, el("div", { class: "table-wrap" }, empty("No rows yet.")));
   }
-  return el("div", { class: "table-block" }, head, el("div", { class: "table-wrap" }, body));
+  if (spec.file === "benchmarks") {
+    return el("div", { class: "table-block" }, head, ...benchmarkTabs(data));
+  }
+  return el("div", { class: "table-block" }, head, el("div", { class: "table-wrap" }, grid(data.columns, data.rows)));
 }
 
 // ---------- boot ----------

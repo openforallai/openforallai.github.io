@@ -145,6 +145,27 @@ h2 { font-size: 1.125rem; margin: 0 0 4px; }
 .table-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; margin-bottom: 8px; }
 .table-head h3 { font-size: 1rem; margin: 0; }
 .table-head a { font-size: 0.8125rem; }
+.tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 2px 0 10px;
+  scrollbar-width: thin;
+}
+.tab {
+  flex: none;
+  font: inherit;
+  font-size: 0.8125rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink-2);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tab[aria-selected="true"] { background: var(--ink); color: var(--page); border-color: var(--ink); }
+.tab:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
 .table-wrap {
   overflow-x: auto;
   background: var(--surface);
