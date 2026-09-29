@@ -1,1 +1,76 @@
 model,org,country,weights,benchmark,score,measured_by,setting,date,source_url,notes
+GPT-6 Astra,OpenAI,United States,closed,Epoch Capabilities Index,166.6,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+GPT-6 Astra,OpenAI,United States,closed,GPQA Diamond,95.8,Epoch AI,max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+GPT-6 Astra,OpenAI,United States,closed,OTIS Mock AIME 2024-2025,100.0,Epoch AI,max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+GPT-6 Astra,OpenAI,United States,closed,DeepSWE,74.1,"Datacurve DeepSWE leaderboard, collected by Epoch AI",xhigh,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+GPT-6 Astra,OpenAI,United States,closed,Humanity's Last Exam (no tools),54.8,"HLE leaderboard, collected by Epoch AI",unknown,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Claude Fable 5.1,Anthropic,United States,closed,Epoch Capabilities Index,165.0,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Claude Fable 5.1,Anthropic,United States,closed,OTIS Mock AIME 2024-2025,100.0,Epoch AI,max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Claude Fable 5.1,Anthropic,United States,closed,Humanity's Last Exam (no tools),46.5,"HLE leaderboard, collected by Epoch AI",xhigh,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Gemini 3.7 Flash,Google DeepMind,United States,closed,Epoch Capabilities Index,157.7,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Gemini 3.7 Flash,Google DeepMind,United States,closed,GPQA Diamond,94.8,Epoch AI,high,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Gemini 3.7 Flash,Google DeepMind,United States,closed,OTIS Mock AIME 2024-2025,97.2,Epoch AI,high,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Gemini 3.7 Flash,Google DeepMind,United States,closed,DeepSWE,65.5,"Datacurve DeepSWE leaderboard, collected by Epoch AI",medium,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Kimi K3,Moonshot,China,open,Epoch Capabilities Index,157.7,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Kimi K3,Moonshot,China,open,GPQA Diamond,93.1,Epoch AI,max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Kimi K3,Moonshot,China,open,OTIS Mock AIME 2024-2025,97.2,Epoch AI,max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Kimi K3,Moonshot,China,open,DeepSWE,68.5,"Datacurve DeepSWE leaderboard, collected by Epoch AI",max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Muse Spark 1.3,Meta AI,United States,closed,Epoch Capabilities Index,156.9,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Muse Spark 1.3,Meta AI,United States,closed,OTIS Mock AIME 2024-2025,99.2,Epoch AI,xhigh,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Qwen 3.8 Max,Alibaba,China,closed,Epoch Capabilities Index,156.7,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,"Hosted official version of the open Qwen3.8-2.4T-A95B, with vision, 1M context and built-in tools added; counted as closed, as Epoch does"
+Qwen 3.8 Max,Alibaba,China,closed,GPQA Diamond,92.7,Epoch AI,xhigh,2026-09-29,https://epoch.ai/data/benchmark_data.zip,"Hosted official version of the open Qwen3.8-2.4T-A95B, with vision, 1M context and built-in tools added; counted as closed, as Epoch does"
+Qwen 3.8 Max,Alibaba,China,closed,OTIS Mock AIME 2024-2025,99.4,Epoch AI,xhigh,2026-09-29,https://epoch.ai/data/benchmark_data.zip,"Hosted official version of the open Qwen3.8-2.4T-A95B, with vision, 1M context and built-in tools added; counted as closed, as Epoch does"
+Qwen 3.8 Max,Alibaba,China,closed,DeepSWE,57.5,"Datacurve DeepSWE leaderboard, collected by Epoch AI",xhigh,2026-09-29,https://epoch.ai/data/benchmark_data.zip,"Hosted official version of the open Qwen3.8-2.4T-A95B, with vision, 1M context and built-in tools added; counted as closed, as Epoch does"
+Grok 4.6,xAI,United States,closed,Epoch Capabilities Index,156.5,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Grok 4.6,xAI,United States,closed,GPQA Diamond,94.0,Epoch AI,high,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Grok 4.6,xAI,United States,closed,OTIS Mock AIME 2024-2025,99.2,Epoch AI,xhigh,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Grok 4.6,xAI,United States,closed,DeepSWE,67.5,"Datacurve DeepSWE leaderboard, collected by Epoch AI",medium,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+GLM-5.3,Z.ai (Zhipu AI),China,open,Epoch Capabilities Index,155.6,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,"Epoch lists it as closed weights; its weights have been public on Hugging Face (zai-org/GLM-5.3, glm-5.3 license) since 2026-08-25"
+GLM-5.3,Z.ai (Zhipu AI),China,open,GPQA Diamond,90.9,Epoch AI,max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,"Epoch lists it as closed weights; its weights have been public on Hugging Face (zai-org/GLM-5.3, glm-5.3 license) since 2026-08-25"
+GLM-5.3,Z.ai (Zhipu AI),China,open,OTIS Mock AIME 2024-2025,91.1,Epoch AI,max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,"Epoch lists it as closed weights; its weights have been public on Hugging Face (zai-org/GLM-5.3, glm-5.3 license) since 2026-08-25"
+GLM-5.3,Z.ai (Zhipu AI),China,open,DeepSWE,69.0,"Datacurve DeepSWE leaderboard, collected by Epoch AI",max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,"Epoch lists it as closed weights; its weights have been public on Hugging Face (zai-org/GLM-5.3, glm-5.3 license) since 2026-08-25"
+DeepSeek V4 Pro 0813,DeepSeek,China,open,Epoch Capabilities Index,155.4,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+DeepSeek V4 Pro 0813,DeepSeek,China,open,GPQA Diamond,91.7,Epoch AI,max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+DeepSeek V4 Pro 0813,DeepSeek,China,open,OTIS Mock AIME 2024-2025,98.6,Epoch AI,max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+GLM-5.3-Flash,Z.ai (Zhipu AI),China,open,Epoch Capabilities Index,151.9,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+GLM-5.3-Flash,Z.ai (Zhipu AI),China,open,GPQA Diamond,90.2,Epoch AI,max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+GLM-5.3-Flash,Z.ai (Zhipu AI),China,open,OTIS Mock AIME 2024-2025,93.9,Epoch AI,max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+GLM-5.3-Flash,Z.ai (Zhipu AI),China,open,DeepSWE,63.4,"Datacurve DeepSWE leaderboard, collected by Epoch AI",max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Inkling-Small,Thinking Machines,United States,open,Epoch Capabilities Index,150.1,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Inkling-Small,Thinking Machines,United States,open,GPQA Diamond,88.5,Epoch AI,xhigh,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Inkling-Small,Thinking Machines,United States,open,OTIS Mock AIME 2024-2025,90.0,Epoch AI,xhigh,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Qwen 3.8 27B,Alibaba,China,open,Epoch Capabilities Index,149.4,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+MiniMax-M3,MiniMax,China,open,Epoch Capabilities Index,147.0,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+MiniMax-M3,MiniMax,China,open,GPQA Diamond,90.9,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+MiniMax-M3,MiniMax,China,open,OTIS Mock AIME 2024-2025,71.1,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Nemotron 3 Ultra,NVIDIA,United States,open,Epoch Capabilities Index,146.2,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Nemotron 3 Ultra,NVIDIA,United States,open,GPQA Diamond,85.4,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Nemotron 3 Ultra,NVIDIA,United States,open,OTIS Mock AIME 2024-2025,86.7,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Gemma 4 31B IT,Google DeepMind,United States,open,Epoch Capabilities Index,142.7,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Gemma 4 31B IT,Google DeepMind,United States,open,GPQA Diamond,75.8,Epoch AI,minimal,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Gemma 4 31B IT,Google DeepMind,United States,open,OTIS Mock AIME 2024-2025,73.3,Epoch AI,minimal,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+Mistral Medium 3.5,Mistral AI,France,open,Epoch Capabilities Index,141.4,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+DeepSeek-V4-Pro,DeepSeek,China,open,GPQA Diamond,90.9,Epoch AI,high,2026-09-29,https://epoch.ai/data/benchmark_data.zip,Independent score used instead of the maker's 90.1
+DeepSeek-V4-Pro,DeepSeek,China,open,Humanity's Last Exam (no tools),37.7,self-reported,Think Max,2026-09-29,https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro,Subset not stated
+Kimi K3,Moonshot,China,open,Humanity's Last Exam (no tools),43.5,self-reported,max effort,2026-09-29,https://huggingface.co/moonshotai/Kimi-K3,HLE-Full (full set)
+Kimi K3,Moonshot,China,open,Terminal-Bench 2.1,88.3,self-reported,"max effort, Kimi Code harness",2026-09-29,https://huggingface.co/moonshotai/Kimi-K3,
+GLM-5,Z.ai (Zhipu AI),China,open,GPQA Diamond,87.8,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,Independent score used instead of the maker's 86.0
+GLM-5,Z.ai (Zhipu AI),China,open,Humanity's Last Exam (no tools),30.5,self-reported,,2026-09-29,https://huggingface.co/zai-org/GLM-5,Text-only subset
+MiniMax-M3,MiniMax,China,open,Terminal-Bench 2.1,66.0,self-reported,Terminus 2,2026-09-29,https://huggingface.co/MiniMaxAI/MiniMax-M3,From the benchmark table image on the model page
+Gemma 4 31B IT,Google DeepMind,United States,open,Humanity's Last Exam (no tools),19.5,self-reported,,2026-09-29,https://huggingface.co/google/gemma-4-31B-it,Subset not stated
+gpt-oss-120b,OpenAI,United States,open,GPQA Diamond,75.8,Epoch AI,high,2026-09-29,https://epoch.ai/data/benchmark_data.zip,Independent score used instead of the maker's 80.1
+gpt-oss-120b,OpenAI,United States,open,Humanity's Last Exam (no tools),14.9,self-reported,high,2026-09-29,https://arxiv.org/html/2508.10925,"Model card, Table 3; subset not stated"
+K-EXAONE 2.0,LG AI Research,South Korea,open,Terminal-Bench 2.1,43.8,self-reported,,2026-09-29,https://huggingface.co/LGAI-EXAONE/K-EXAONE-2.0-750B-A37B,Harness not stated
+K-EXAONE 2.0,LG AI Research,South Korea,open,Humanity's Last Exam (no tools),18.3,self-reported,reasoning mode,2026-09-29,https://huggingface.co/LGAI-EXAONE/K-EXAONE-2.0-750B-A37B,The card does not say whether tools were used
+K-EXAONE 2.0,LG AI Research,South Korea,open,GPQA Diamond,82.2,self-reported,reasoning mode,2026-09-29,https://huggingface.co/LGAI-EXAONE/K-EXAONE-2.0-750B-A37B,
+A.X K2,SK Telecom,South Korea,open,Terminal-Bench 2.1,36.0,self-reported,thinking mode,2026-09-29,https://huggingface.co/skt/A.X-K2,SKT marks this score as evaluated by Artificial Analysis
+A.X K2,SK Telecom,South Korea,open,Humanity's Last Exam (no tools),27.8,self-reported,thinking mode,2026-09-29,https://huggingface.co/skt/A.X-K2,The card does not say whether tools were used
+A.X K2,SK Telecom,South Korea,open,GPQA Diamond,85.6,self-reported,thinking mode,2026-09-29,https://huggingface.co/skt/A.X-K2,
+Solar Open 2,Upstage,South Korea,open,Humanity's Last Exam (no tools),28.8,self-reported,,2026-09-29,https://huggingface.co/upstage/Solar-Open2-250B,Subset not stated
+Solar Open 2,Upstage,South Korea,open,GPQA Diamond,86.3,self-reported,,2026-09-29,https://huggingface.co/upstage/Solar-Open2-250B,
+Nemotron 3 Super,NVIDIA,United States,open,Humanity's Last Exam (no tools),18.3,self-reported,,2026-09-29,https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16,Reported as 18.26; subset not stated
+Qwen 3.8 Max,Alibaba,China,closed,Terminal-Bench 2.1,86.6,self-reported,"Claude Code harness, avg@10",2026-09-29,https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B,"Reported in the open Qwen3.8-2.4T-A95B model card under the Qwen3.8-Max column; Max is the hosted version with extra features, counted as closed"
+Qwen 3.8 Max,Alibaba,China,closed,Humanity's Last Exam (no tools),43.6,self-reported,thinking,2026-09-29,https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B,Qwen3.8-Max column; subset not stated
+GPT-5.6 Sol,OpenAI,United States,closed,Terminal-Bench 2.1,88.8,self-reported,,2026-09-29,https://web.archive.org/web/2026/https://openai.com/index/gpt-5-6/,openai.com blocks automated reading; read from the Wayback Machine copy
+GPT-5.6 Sol,OpenAI,United States,closed,GPQA Diamond,93.5,Epoch AI,max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,Independent score used instead of the maker's 94.6
+Gemini 3.8 Flash,Google DeepMind,United States,closed,Terminal-Bench 2.1,89.4,self-reported,Terminus 2,2026-09-29,https://storage.googleapis.com/deepmind-media/gemini/gemini_3-8_flash_model_evaluation.pdf,Google: self computed with the default Terminus 2 harness
