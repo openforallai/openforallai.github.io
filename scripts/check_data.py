@@ -20,6 +20,7 @@ SCHEMA = {
     "decentralized_compute": [
         "network", "gpu_type", "usd_per_hour", "source_url", "centralized_provider",
         "centralized_usd_per_hour", "centralized_source_url", "premium_pct", "date",
+        "available", "total", "notes",
     ],
     "token_vs_usage": [
         "network", "month", "emissions_usd", "usage_metric", "usage_value",
@@ -45,10 +46,11 @@ REQUIRED = {
 NUMBERS = {
     "training_cost_usd_estimate", "usd_per_hour", "centralized_usd_per_hour", "premium_pct",
     "emissions_usd", "usage_value", "emissions_usd_per_usage_unit", "budget_krw", "amount_usd",
+    "available", "total",
 }
 DATES = {"release_date", "added_date", "date"}
 CHOICES = {
-    "funding_source": {"corporate", "state", "crypto", "donation"},
+    "funding_source": {"corporate", "corporate_gov", "state", "crypto", "donation"},
     "funder_type": {"corporate", "state", "crypto", "donation", "vc"},
 }
 

@@ -13,10 +13,10 @@ Corrections and new rows are welcome as pull requests. The bar is the same for e
 ## The columns
 
 **`open_models.csv`**: one open-weights model.
-`name` as on the model card · `org` · `country` of the org, full English name (`United States`, `China`, `South Korea`, `France`, `UAE`, `Canada`, …) · `params` total, with active for mixture-of-experts, e.g. `284B (13B active)` · `license` as the maker names it (`MIT`, `Apache-2.0`, `custom`) · `release_date` when the weights went public · `training_cost_usd_estimate` · `funding_source`: `corporate`, `state`, `crypto` or `donation` · `source_url` · `added_date`, the day the row was added.
+`name` as on the model card · `org` · `country` of the org, full English name (`United States`, `China`, `South Korea`, `France`, `UAE`, `Canada`, …) · `params` total, with active for mixture-of-experts, e.g. `284B (13B active)` · `license` as the maker names it (`MIT`, `Apache-2.0`, `custom`) · `release_date` when the weights went public · `training_cost_usd_estimate` · `funding_source`: `corporate`, `corporate_gov` (a company model built under a government programme, e.g. Korea's sovereign foundation model project, where the government's share isn't published), `state`, `crypto` or `donation` · `source_url` · `added_date`, the day the row was added.
 
 **`decentralized_compute.csv`**: one GPU price on a decentralized network, next to the same GPU at a centralized provider on about the same date.
-`network` · `gpu_type` · `usd_per_hour` · `source_url` for that price · `centralized_provider` · `centralized_usd_per_hour` · `centralized_source_url` · `premium_pct` (leave empty; the site works it out) · `date`.
+`network` · `gpu_type` · `usd_per_hour` · `source_url` for that price · `centralized_provider` · `centralized_usd_per_hour` · `centralized_source_url` · `premium_pct` (leave empty; the site works it out) · `date` · `available` and `total`: units free to rent and units listed when the price was read, if the network shows them · `notes`: what the price is (average, lowest, which product) and anything a reader needs, e.g. "availability counts hosts, not GPUs".
 
 **`token_vs_usage.csv`**: one month of one network.
 `network` · `month` · `emissions_usd` · `usage_metric` (what is counted) · `usage_value` · `emissions_usd_per_usage_unit` (may be empty) · `source_url`.

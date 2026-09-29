@@ -23,7 +23,9 @@ const COUNTRIES = [
 ];
 const OTHER = { name: "Other", color: "--other" };
 
-const FUNDING_ORDER = ["corporate", "state", "crypto", "donation"];
+const FUNDING_ORDER = ["corporate", "corporate_gov", "state", "crypto", "donation"];
+const FUNDING_LABELS = { corporate_gov: "Corporate, government programme" };
+const fundingLabel = (s) => FUNDING_LABELS[s] || capitalize(s);
 
 // ---------- CSV ----------
 
@@ -189,11 +191,11 @@ function chartFunding(data) {
           return el("span", {
             class: "seg",
             style: { flexGrow: models.length, flexBasis: 0, background: cssVar(c.color) },
-            "data-tip": `${capitalize(src)} · ${c.name}: ${models.length} (${models.join(", ")})`,
+            "data-tip": `${fundingLabel(src)} · ${c.name}: ${models.length} (${models.join(", ")})`,
           });
         });
       return el("div", { class: "row" },
-        el("div", { class: "row-label" }, capitalize(src)),
+        el("div", { class: "row-label" }, fundingLabel(src)),
         el("div", { class: "track" },
           el("div", { class: "bar", style: { width: `calc((100% - 3rem) * ${totals[i] / max})` } }, segs),
           el("span", { class: "bar-value" }, totals[i])
@@ -231,12 +233,16 @@ function chartCompute(data) {
     // Each arm is half the track minus 3rem, so the value label always fits outside the bar.
     const arm = `(50% - 3rem) * ${Math.abs(p) / max}`;
     const neg = p < 0;
+    const avail = num(r.available), total = num(r.total);
+    const free = avail != null && total != null ? `${avail} of ${total} free` : "";
     const tipText =
       `${r.gpu_type} on ${r.network || "?"}: ${formatPct(p)}` +
       (d != null && c != null ? ` ($${d}/h vs $${c}/h at ${r.centralized_provider || "centralized"})` : "") +
-      (r.date ? `, ${r.date}` : "");
+      (r.date ? `, ${r.date}` : "") +
+      (free ? `. ${free} when read` : "") +
+      (r.notes ? `. ${r.notes}` : "");
     return el("div", { class: "row" },
-      el("div", { class: "row-label" }, r.gpu_type, el("small", {}, r.network || "")),
+      el("div", { class: "row-label" }, r.gpu_type, el("small", {}, [r.network, free].filter(Boolean).join(" · "))),
       el("div", { class: "track div" },
         el("span", { class: "zero" }),
         el("span", {
