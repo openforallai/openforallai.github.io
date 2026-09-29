@@ -379,6 +379,15 @@ function chartGap(data) {
   target.replaceChildren(...blocks);
 }
 
+// Benchmarks table: grouped by benchmark in the chart's order, best score first.
+function sortBenchmarks(rows) {
+  const order = (b) => {
+    const i = BENCH_ORDER.findIndex(([name]) => name === b);
+    return i < 0 ? 99 : i;
+  };
+  return [...rows].sort((a, b) => order(a.benchmark) - order(b.benchmark) || a.benchmark.localeCompare(b.benchmark) || num(b.score) - num(a.score));
+}
+
 // ---------- tables ----------
 
 const NUMERIC = /(_usd|_krw|_pct|usd_per|params|value|amount)/;
@@ -393,9 +402,10 @@ function table(spec, data) {
     body = empty("No rows yet.");
   } else {
     const cols = data.columns;
+    const rows = spec.file === "benchmarks" ? sortBenchmarks(data.rows) : data.rows;
     body = el("table", {},
       el("thead", {}, el("tr", {}, cols.map((c) => el("th", { scope: "col" }, c.replace(/_/g, " "))))),
-      el("tbody", {}, data.rows.map((r) =>
+      el("tbody", {}, rows.map((r) =>
         el("tr", {}, cols.map((c) => {
           const v = r[c];
           if (c.endsWith("source_url") && /^https?:\/\//.test(v)) {
