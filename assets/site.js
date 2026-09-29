@@ -104,6 +104,13 @@ function formatKRW(v) {
   return `₩${Math.round(v).toLocaleString("en-US")}`;
 }
 
+// Chart labels drop the Korean name in brackets and anything after it, and
+// stop at 48 characters; the table and tooltip keep the full name.
+function shortLabel(s) {
+  const t = s.split(" (")[0].trim();
+  return t.length > 48 ? `${t.slice(0, 46).trimEnd()}…` : t;
+}
+
 function formatPct(v) {
   const r = Math.round(v);
   return `${r > 0 ? "+" : ""}${r}%`;
@@ -265,7 +272,7 @@ function chartKorea(data) {
   target.replaceChildren(
     ...items.map(({ r, v }) =>
       el("div", { class: "row" },
-        el("div", { class: "row-label" }, r.program || "(unnamed)", el("small", {}, r.recipient || "")),
+        el("div", { class: "row-label", title: r.program }, shortLabel(r.program || "(unnamed)"), el("small", {}, r.recipient || "")),
         el("div", { class: "track" },
           el("div", {
             class: "bar",
