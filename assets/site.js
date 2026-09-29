@@ -295,13 +295,17 @@ function chartKorea(data) {
 
 // ---------- chart 4: how far behind are open models ----------
 
+// [benchmark in the data, label, unit, group heading]
 const BENCH_ORDER = [
-  ["Epoch Capabilities Index", "Epoch Capabilities Index", "points"],
-  ["GPQA Diamond", "GPQA Diamond", "%"],
-  ["Humanity's Last Exam (no tools)", "Humanity's Last Exam (no tools)", "%"],
-  ["Terminal-Bench 2.1", "Terminal-Bench 2.1", "%"],
-  ["DeepSWE", "DeepSWE", "%"],
-  ["OTIS Mock AIME 2024-2025", "Mock AIME (Epoch)", "%"],
+  ["Epoch Capabilities Index", "Epoch Capabilities Index", "points", "Overall"],
+  ["GPQA Diamond", "GPQA Diamond", "%", "Knowledge and reasoning"],
+  ["Humanity's Last Exam (no tools)", "Humanity's Last Exam (no tools)", "%", "Knowledge and reasoning"],
+  ["OTIS Mock AIME 2024-2025", "Mock AIME (Epoch)", "%", "Knowledge and reasoning"],
+  ["Terminal-Bench 2.1", "Terminal-Bench 2.1", "%", "Agentic coding"],
+  ["DeepSWE", "DeepSWE", "%", "Agentic coding"],
+  ["FrontierSWE", "FrontierSWE", "%", "Agentic coding"],
+  ["APEX-Agents", "APEX-Agents (professional tasks)", "%", "Agentic tasks"],
+  ["Vending-Bench 2", "Vending-Bench 2 (runs a business, final balance)", "$", "Agentic tasks"],
 ];
 const GROUPS = [
   { key: "closed", name: "Best closed", color: "--s1", test: (r) => r.weights === "closed" },
@@ -325,7 +329,8 @@ function chartGap(data) {
   }
   legend(document.getElementById("c4-legend"), GROUPS.filter((g) => rows.some(g.test)));
   const blocks = [];
-  for (const [bench, label, unit] of BENCH_ORDER) {
+  let heading = null;
+  for (const [bench, label, unit, group] of BENCH_ORDER) {
     const inBench = rows.filter((r) => r.benchmark === bench);
     if (!inBench.length) continue;
     const best = GROUPS.map((g) => {
@@ -333,18 +338,25 @@ function chartGap(data) {
       return pool.length ? { g, r: pickBest(pool) } : null;
     }).filter(Boolean);
     const max = Math.max(...best.map((b) => num(b.r.score)));
+    if (group !== heading) {
+      blocks.push(el("h3", { class: "bench-group" }, group));
+      heading = group;
+    }
+    const money = (v) => `$${Math.round(v).toLocaleString("en-US")}`;
     const closed = best.find((b) => b.g.key === "closed");
     const open = best.find((b) => b.g.key === "open");
     let gap = "";
     if (closed && open) {
       const d = num(closed.r.score) - num(open.r.score);
       const pts = Math.abs(d).toFixed(1);
-      gap = Math.abs(d) < 0.05 ? "Open level with closed" : d > 0 ? `Open trails by ${pts} ${unit === "%" ? "points" : unit}` : `Open leads by ${pts} ${unit === "%" ? "points" : unit}`;
+      const amount = unit === "$" ? money(Math.abs(d)) : `${pts} ${unit === "%" ? "points" : unit}`;
+      gap = Math.abs(d) < 0.05 ? "Open level with closed" : d > 0 ? `Open trails by ${amount}` : `Open leads by ${amount}`;
     }
     // Only the closed-vs-open gap is stated, so only that pair decides the warning.
     const mixed = closed && open && (closed.r.measured_by === "self-reported") !== (open.r.measured_by === "self-reported");
     if (mixed) gap += `${gap ? " · " : ""}mixes self-reported and independent scores`;
-    const fmt = (r) => `${num(r.score).toFixed(1)}${unit === "%" ? "%" : ""}${r.measured_by === "self-reported" ? "*" : ""}`;
+    const fmt = (r) =>
+      `${unit === "$" ? money(num(r.score)) : num(r.score).toFixed(1)}${unit === "%" ? "%" : ""}${r.measured_by === "self-reported" ? "*" : ""}`;
     blocks.push(
       el("div", { class: "bench" },
         el("div", { class: "bench-head" }, el("strong", {}, label), el("span", {}, gap)),
@@ -354,7 +366,7 @@ function chartGap(data) {
             el("div", { class: "track" },
               el("div", {
                 class: "bar",
-                style: { width: `calc((100% - 4rem) * ${num(r.score) / max})`, background: cssVar(g.color) },
+                style: { width: `calc((100% - 4.5rem) * ${Math.max(0, num(r.score)) / max})`, background: cssVar(g.color) },
                 "data-tip": `${r.model} (${r.org}): ${fmt(r)} on ${label}. Measured by ${r.measured_by}${r.setting ? `, ${r.setting}` : ""}.${r.notes ? ` ${r.notes}` : ""}`,
               }),
               el("span", { class: "bar-value" }, fmt(r))

@@ -134,6 +134,8 @@ h2 { font-size: 1.125rem; margin: 0 0 4px; }
 
 /* Benchmark gap blocks */
 .bench + .bench { margin-top: 16px; }
+.bench-group { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 24px 0 8px; }
+.bench-group:first-child { margin-top: 4px; }
 .bench-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; font-size: 0.875rem; padding-bottom: 2px; border-bottom: 1px solid var(--axis); }
 .bench-head span { color: var(--ink-2); }
 
