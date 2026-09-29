@@ -11,7 +11,7 @@ The maintainer reviews everything from a phone, often with little time. Make eac
    - **Routine rows, merge yourself** once checks pass: a number stated on a primary source (model card, maker's announcement, pricing page or API, government release) that you opened and confirmed, ideally also through an API (e.g. the Hugging Face model API). Then tell him what went live.
    - **Anything needing judgment, leave the pull request open for him:** a new category or column, sources that disagree, a number only in news, a currency conversion he hasn't seen before, a row you'd mark unsure, or deleting or changing an existing row. Say at the top what he has to decide.
 5. The pull request description is the record, and what he checks when it's his call. For each row, give:
-   - the row in plain words ("DeepSeek-V4-Flash, 284B total, MIT, released 2026-04-22"),
+   - the row in plain words ("DeepSeek-V4-Flash, 284B total, MIT, released 2026-04-24"),
    - the source link,
    - **the exact sentence or table cell on that page** that states each number, quoted.
    Put anything you are unsure about at the top, under **Unsure**.
