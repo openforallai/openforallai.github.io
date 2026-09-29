@@ -285,7 +285,7 @@ const NUMERIC = /(_usd|_krw|_pct|usd_per|params|value|amount)/;
 
 function table(spec, data) {
   const head = el("div", { class: "table-head" },
-    el("h3", {}, `${spec.title} `, el("span", { class: "meta" }, `(${data.rows.length} rows)`)),
+    el("h3", {}, `${spec.title} `, el("span", { class: "meta" }, `(${data.rows.length} ${data.rows.length === 1 ? "row" : "rows"})`)),
     el("a", { href: `data/${spec.file}.csv`, download: "" }, "Download CSV")
   );
   let body;
@@ -345,7 +345,7 @@ async function lastUpdated() {
   const failed = TABLES.filter((t) => data[t.file].error).map((t) => t.file);
   const updated = await lastUpdated();
   meta.textContent =
-    `${total} sourced rows across ${TABLES.length} tables` +
+    `${total} sourced ${total === 1 ? "row" : "rows"} across ${TABLES.length} tables` +
     (updated ? ` · data last changed ${updated}` : "") +
     (failed.length ? ` · could not load: ${failed.join(", ")}` : "");
 })();
