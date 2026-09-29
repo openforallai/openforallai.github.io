@@ -27,6 +27,11 @@ Corrections and new rows are welcome as pull requests. The bar is the same for e
 **`funding_events.csv`**: money into an open-source AI project.
 `project` · `amount_usd` · `funder_type`: `corporate`, `state`, `crypto`, `donation` or `vc` · `date` · `source_url`.
 
+**`benchmarks.csv`**: one score of one model on one benchmark.
+`model` · `org` · `country` · `weights`: `open` or `closed` · `benchmark`, with the exact variant (e.g. `Terminal-Bench 2.1`, `Humanity's Last Exam (no tools)`) · `score`: percent for accuracy benchmarks, index points for the Epoch Capabilities Index · `measured_by`: who ran it, e.g. `Epoch AI`, or `self-reported` when the number comes from the model's maker · `setting`: reasoning effort or harness, if stated · `date`: when the score was read or published · `source_url` · `notes`.
+
+Which models: the best open and the best closed model of each organization by the Epoch Capabilities Index, plus Korean models, which Epoch rarely covers. Which benchmarks: the ones labs most often put in their release tables and that both open and closed labs report (counted across 22 release announcements, 2026-09-29): the Epoch Capabilities Index, GPQA Diamond, Humanity's Last Exam (no tools), Terminal-Bench 2.1, DeepSWE and Epoch's OTIS Mock AIME. Independent scores are used wherever they exist; a maker's own number is used only where none does, and is always marked `self-reported`.
+
 ## Before you open a pull request
 
 Run `python3 scripts/check_data.py`. It checks headers, required fields, number and date formats and source links. It also runs on every pull request.

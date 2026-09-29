@@ -30,6 +30,10 @@ SCHEMA = {
         "program", "budget_krw", "recipient", "model_output", "date", "source_url",
     ],
     "funding_events": ["project", "amount_usd", "funder_type", "date", "source_url"],
+    "benchmarks": [
+        "model", "org", "country", "weights", "benchmark", "score", "measured_by",
+        "setting", "date", "source_url", "notes",
+    ],
 }
 
 REQUIRED = {
@@ -41,17 +45,19 @@ REQUIRED = {
     "token_vs_usage": ["network", "month", "emissions_usd", "usage_metric", "usage_value", "source_url"],
     "korean_sovereign_ai": ["program", "budget_krw", "date", "source_url"],
     "funding_events": ["project", "amount_usd", "funder_type", "date", "source_url"],
+    "benchmarks": ["model", "org", "weights", "benchmark", "score", "measured_by", "date", "source_url"],
 }
 
 NUMBERS = {
     "training_cost_usd_estimate", "usd_per_hour", "centralized_usd_per_hour", "premium_pct",
     "emissions_usd", "usage_value", "emissions_usd_per_usage_unit", "budget_krw", "amount_usd",
-    "available", "total",
+    "available", "total", "score",
 }
 DATES = {"release_date", "added_date", "date"}
 CHOICES = {
     "funding_source": {"corporate", "corporate_gov", "state", "crypto", "donation"},
     "funder_type": {"corporate", "state", "crypto", "donation", "vc"},
+    "weights": {"open", "closed"},
 }
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")

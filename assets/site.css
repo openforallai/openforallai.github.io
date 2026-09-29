@@ -132,6 +132,11 @@ h2 { font-size: 1.125rem; margin: 0 0 4px; }
 .dbar.pos { border-radius: 0 4px 4px 0; }
 .dval { position: absolute; top: 8px; line-height: 20px; font-size: 0.8125rem; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
+/* Benchmark gap blocks */
+.bench + .bench { margin-top: 16px; }
+.bench-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; font-size: 0.875rem; padding-bottom: 2px; border-bottom: 1px solid var(--axis); }
+.bench-head span { color: var(--ink-2); }
+
 /* Tables */
 .tables { margin: 40px 0 24px; }
 .table-block { margin: 0 0 28px; }

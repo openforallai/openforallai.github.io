@@ -9,6 +9,7 @@ const TABLES = [
   { file: "token_vs_usage", title: "Token emissions vs usage" },
   { file: "korean_sovereign_ai", title: "Korean sovereign AI" },
   { file: "funding_events", title: "Open-source funding events" },
+  { file: "benchmarks", title: "Benchmarks" },
 ];
 
 // Countries get fixed colors so a country keeps its color as rows are added.
@@ -292,6 +293,77 @@ function chartKorea(data) {
   );
 }
 
+// ---------- chart 4: how far behind are open models ----------
+
+const BENCH_ORDER = [
+  ["Epoch Capabilities Index", "Epoch Capabilities Index", "points"],
+  ["GPQA Diamond", "GPQA Diamond", "%"],
+  ["Humanity's Last Exam (no tools)", "Humanity's Last Exam (no tools)", "%"],
+  ["Terminal-Bench 2.1", "Terminal-Bench 2.1", "%"],
+  ["DeepSWE", "DeepSWE", "%"],
+  ["OTIS Mock AIME 2024-2025", "Mock AIME (Epoch)", "%"],
+];
+const GROUPS = [
+  { key: "closed", name: "Best closed", color: "--s1", test: (r) => r.weights === "closed" },
+  { key: "open", name: "Best open", color: "--s2", test: (r) => r.weights === "open" },
+  { key: "korea", name: "Best Korean", color: "--s3", test: (r) => r.country === "South Korea" },
+];
+
+function pickBest(rows) {
+  // Independent scores win; a self-reported score is used only if a group has nothing else.
+  const indep = rows.filter((r) => r.measured_by !== "self-reported");
+  const pool = indep.length ? indep : rows;
+  return pool.reduce((a, b) => (num(b.score) > num(a.score) ? b : a), pool[0]);
+}
+
+function chartGap(data) {
+  const target = document.getElementById("c4");
+  const rows = data.rows.filter((r) => num(r.score) != null);
+  if (!rows.length) {
+    target.replaceChildren(empty("No scores yet."));
+    return;
+  }
+  legend(document.getElementById("c4-legend"), GROUPS);
+  const blocks = [];
+  for (const [bench, label, unit] of BENCH_ORDER) {
+    const inBench = rows.filter((r) => r.benchmark === bench);
+    if (!inBench.length) continue;
+    const best = GROUPS.map((g) => {
+      const pool = inBench.filter(g.test);
+      return pool.length ? { g, r: pickBest(pool) } : null;
+    }).filter(Boolean);
+    const max = Math.max(...best.map((b) => num(b.r.score)));
+    const closed = best.find((b) => b.g.key === "closed");
+    const open = best.find((b) => b.g.key === "open");
+    let gap = "";
+    if (closed && open) {
+      const d = num(closed.r.score) - num(open.r.score);
+      const pts = Math.abs(d).toFixed(1);
+      gap = Math.abs(d) < 0.05 ? "Open level with closed" : d > 0 ? `Open trails by ${pts} ${unit === "%" ? "points" : unit}` : `Open leads by ${pts} ${unit === "%" ? "points" : unit}`;
+    }
+    const fmt = (r) => `${num(r.score).toFixed(1)}${unit === "%" ? "%" : ""}${r.measured_by === "self-reported" ? "*" : ""}`;
+    blocks.push(
+      el("div", { class: "bench" },
+        el("div", { class: "bench-head" }, el("strong", {}, label), el("span", {}, gap)),
+        best.map(({ g, r }) =>
+          el("div", { class: "row" },
+            el("div", { class: "row-label" }, g.name, el("small", {}, r.model)),
+            el("div", { class: "track" },
+              el("div", {
+                class: "bar",
+                style: { width: `calc((100% - 4rem) * ${num(r.score) / max})`, background: cssVar(g.color) },
+                "data-tip": `${r.model} (${r.org}): ${fmt(r)} on ${label}. Measured by ${r.measured_by}${r.setting ? `, ${r.setting}` : ""}.${r.notes ? ` ${r.notes}` : ""}`,
+              }),
+              el("span", { class: "bar-value" }, fmt(r))
+            )
+          )
+        )
+      )
+    );
+  }
+  target.replaceChildren(...blocks);
+}
+
 // ---------- tables ----------
 
 const NUMERIC = /(_usd|_krw|_pct|usd_per|params|value|amount)/;
@@ -352,6 +424,7 @@ async function lastUpdated() {
   chartFunding(data.open_models);
   chartCompute(data.decentralized_compute);
   chartKorea(data.korean_sovereign_ai);
+  chartGap(data.benchmarks);
   document.getElementById("tables").replaceChildren(...TABLES.map((t) => table(t, data[t.file])));
 
   const total = TABLES.reduce((n, t) => n + data[t.file].rows.length, 0);
