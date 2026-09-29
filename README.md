@@ -20,7 +20,7 @@ Every row has a `source_url`. No source, no row.
 
 ## How the data gets here
 
-The data is kept in a Google Sheet and published as CSV. A nightly GitHub Action copies it into `data/`, so every change has a history and the whole set can be forked.
+Rows are added by pull request. Each one is checked against its source before it is merged, and every change stays in the history, so the whole set can be forked or cited at any point in time. The rules and the meaning of every column are in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Corrections
 

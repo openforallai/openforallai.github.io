@@ -1,1 +1,2 @@
 name,org,country,params,license,release_date,training_cost_usd_estimate,funding_source,source_url,added_date
+DeepSeek-V4-Flash,DeepSeek,China,284B (13B active),MIT,2026-04-22,,corporate,https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash,2026-09-29

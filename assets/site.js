@@ -298,7 +298,7 @@ function table(spec, data) {
       el("tbody", {}, data.rows.map((r) =>
         el("tr", {}, cols.map((c) => {
           const v = r[c];
-          if (c === "source_url" && /^https?:\/\//.test(v)) {
+          if (c.endsWith("source_url") && /^https?:\/\//.test(v)) {
             let host = v;
             try { host = new URL(v).hostname.replace(/^www\./, ""); } catch {}
             return el("td", {}, el("a", { href: v, rel: "noopener" }, host));
