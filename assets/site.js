@@ -341,6 +341,8 @@ function chartGap(data) {
       const pts = Math.abs(d).toFixed(1);
       gap = Math.abs(d) < 0.05 ? "Open level with closed" : d > 0 ? `Open trails by ${pts} ${unit === "%" ? "points" : unit}` : `Open leads by ${pts} ${unit === "%" ? "points" : unit}`;
     }
+    const mixed = best.some((b) => b.r.measured_by === "self-reported") && best.some((b) => b.r.measured_by !== "self-reported");
+    if (mixed) gap += `${gap ? " · " : ""}mixes self-reported and independent scores`;
     const fmt = (r) => `${num(r.score).toFixed(1)}${unit === "%" ? "%" : ""}${r.measured_by === "self-reported" ? "*" : ""}`;
     blocks.push(
       el("div", { class: "bench" },
