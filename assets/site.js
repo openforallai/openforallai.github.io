@@ -401,7 +401,8 @@ function table(spec, data) {
   if (!data.rows.length) {
     body = empty("No rows yet.");
   } else {
-    const cols = data.columns;
+    const lead = spec.file === "benchmarks" ? ["benchmark", "score", "model", "weights"] : [];
+    const cols = [...lead.filter((c) => data.columns.includes(c)), ...data.columns.filter((c) => !lead.includes(c))];
     const rows = spec.file === "benchmarks" ? sortBenchmarks(data.rows) : data.rows;
     body = el("table", {},
       el("thead", {}, el("tr", {}, cols.map((c) => el("th", { scope: "col" }, c.replace(/_/g, " "))))),
