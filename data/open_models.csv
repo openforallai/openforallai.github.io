@@ -1,2 +1,25 @@
 name,org,country,params,license,release_date,training_cost_usd_estimate,funding_source,source_url,added_date
-DeepSeek-V4-Flash,DeepSeek,China,284B (13B active),MIT,2026-04-22,,corporate,https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash,2026-09-29
+DeepSeek-V4-Flash,DeepSeek,China,284B (13B active),MIT,2026-04-24,,corporate,https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash,2026-09-29
+Llama-4-Maverick-17B-128E-Instruct,Meta,United States,400B (17B active),llama4,2025-04-05,,corporate,https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct,2026-09-29
+Qwen3-235B-A22B,Alibaba (Qwen),China,235B (22B active),Apache-2.0,2025-04-29,,corporate,https://huggingface.co/Qwen/Qwen3-235B-A22B,2026-09-29
+Qwen3.8-2.4T-A95B,Alibaba (Qwen),China,2.4T (95B active),qwen3.8-max,2026-08-12,,corporate,https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B,2026-09-29
+DeepSeek-R1,DeepSeek,China,671B (37B active),MIT,2025-01-20,,corporate,https://huggingface.co/deepseek-ai/DeepSeek-R1,2026-09-29
+DeepSeek-V4-Pro,DeepSeek,China,1.6T (49B active),MIT,2026-04-24,,corporate,https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro,2026-09-29
+Mistral-Large-3-675B-Instruct-2512,Mistral AI,France,675B (41B active),Apache-2.0,2025-12-02,,corporate,https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512,2026-09-29
+gemma-4-31B-it,Google DeepMind,United States,30.7B,Apache-2.0,2026-04-02,,corporate,https://huggingface.co/google/gemma-4-31B-it,2026-09-29
+gpt-oss-120b,OpenAI,United States,117B (5.1B active),Apache-2.0,2025-08-05,,corporate,https://huggingface.co/openai/gpt-oss-120b,2026-09-29
+Kimi-K3,Moonshot AI,China,2.8T (104B active),kimi-k3,2026-07-27,,corporate,https://huggingface.co/moonshotai/Kimi-K3,2026-09-29
+GLM-5,Zhipu AI (Z.ai),China,744B (40B active),MIT,2026-02-11,,corporate,https://huggingface.co/zai-org/GLM-5,2026-09-29
+MiniMax-M3,MiniMax,China,428B (23B active),minimax-community,,,corporate,https://huggingface.co/MiniMaxAI/MiniMax-M3,2026-09-29
+NVIDIA-Nemotron-3-Super-120B-A12B,NVIDIA,United States,120B (12B active),nvidia-nemotron-open-model-license,2026-03-11,,corporate,https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16,2026-09-29
+Olmo-3-32B-Think,Ai2 (Allen Institute for AI),United States,32B,Apache-2.0,2025-11-20,,donation,https://huggingface.co/allenai/Olmo-3-32B-Think,2026-09-29
+Apertus-70B-2509,Swiss AI Initiative (ETH Zurich and EPFL),Switzerland,70B,Apache-2.0,2025-09-02,,state,https://huggingface.co/swiss-ai/Apertus-70B-2509,2026-09-29
+Falcon-H1R-7B,Technology Innovation Institute (TII),UAE,7B,falcon-llm-license,2026-01-05,,state,https://huggingface.co/tiiuae/Falcon-H1R-7B,2026-09-29
+command-a-plus-05-2026,Cohere,Canada,218B (25B active),Apache-2.0,2026-05-20,,corporate,https://huggingface.co/CohereLabs/command-a-plus-05-2026-bf16,2026-09-29
+K-EXAONE-2.0-750B-A37B,LG AI Research,South Korea,750B (37B active),Apache-2.0,2026-07-31,,corporate_gov,https://huggingface.co/LGAI-EXAONE/K-EXAONE-2.0-750B-A37B,2026-09-29
+Solar-Open2-250B,Upstage,South Korea,250B (15B active),upstage-solar-license,2026-07-22,,corporate_gov,https://huggingface.co/upstage/Solar-Open2-250B,2026-09-29
+A.X-K2,SK Telecom,South Korea,688B (33B active),Apache-2.0,2026-07-29,,corporate_gov,https://huggingface.co/skt/A.X-K2,2026-09-29
+HyperCLOVAX-SEED-Think-32B,Naver Cloud,South Korea,32B,hyperclovax,2025-12-29,,corporate,https://huggingface.co/naver-hyperclovax/HyperCLOVAX-SEED-Think-32B,2026-09-29
+kanana-2-30b-a3b-instruct,Kakao,South Korea,30B (3B active),kanana-license,2025-12-19,,corporate,https://huggingface.co/kakaocorp/kanana-2-30b-a3b-instruct,2026-09-29
+INTELLECT-3,Prime Intellect,United States,106B (12B active),MIT,2025-11-26,,corporate,https://huggingface.co/PrimeIntellect/INTELLECT-3,2026-09-29
+Hermes-4.3-36B,Nous Research,United States,36B,Apache-2.0,2025-12-03,,crypto,https://huggingface.co/NousResearch/Hermes-4.3-36B,2026-09-29
