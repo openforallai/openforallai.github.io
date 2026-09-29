@@ -323,7 +323,7 @@ function chartGap(data) {
     target.replaceChildren(empty("No scores yet."));
     return;
   }
-  legend(document.getElementById("c4-legend"), GROUPS);
+  legend(document.getElementById("c4-legend"), GROUPS.filter((g) => rows.some(g.test)));
   const blocks = [];
   for (const [bench, label, unit] of BENCH_ORDER) {
     const inBench = rows.filter((r) => r.benchmark === bench);
