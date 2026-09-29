@@ -61,10 +61,8 @@ Gemma 4 31B IT,Google DeepMind,United States,open,Humanity's Last Exam (no tools
 gpt-oss-120b,OpenAI,United States,open,GPQA Diamond,75.8,Epoch AI,high,2026-09-29,https://epoch.ai/data/benchmark_data.zip,Independent score used instead of the maker's 80.1
 gpt-oss-120b,OpenAI,United States,open,Humanity's Last Exam (no tools),14.9,self-reported,high,2026-09-29,https://arxiv.org/html/2508.10925,"Model card, Table 3; subset not stated"
 K-EXAONE 2.0,LG AI Research,South Korea,open,Terminal-Bench 2.1,43.8,self-reported,,2026-09-29,https://huggingface.co/LGAI-EXAONE/K-EXAONE-2.0-750B-A37B,Harness not stated
-K-EXAONE 2.0,LG AI Research,South Korea,open,Humanity's Last Exam (no tools),18.3,self-reported,reasoning mode,2026-09-29,https://huggingface.co/LGAI-EXAONE/K-EXAONE-2.0-750B-A37B,The card does not say whether tools were used
 K-EXAONE 2.0,LG AI Research,South Korea,open,GPQA Diamond,82.2,self-reported,reasoning mode,2026-09-29,https://huggingface.co/LGAI-EXAONE/K-EXAONE-2.0-750B-A37B,
 A.X K2,SK Telecom,South Korea,open,Terminal-Bench 2.1,36.0,self-reported,thinking mode,2026-09-29,https://huggingface.co/skt/A.X-K2,SKT marks this score as evaluated by Artificial Analysis
-A.X K2,SK Telecom,South Korea,open,Humanity's Last Exam (no tools),27.8,self-reported,thinking mode,2026-09-29,https://huggingface.co/skt/A.X-K2,The card does not say whether tools were used
 A.X K2,SK Telecom,South Korea,open,GPQA Diamond,85.6,self-reported,thinking mode,2026-09-29,https://huggingface.co/skt/A.X-K2,
 Solar Open 2,Upstage,South Korea,open,Humanity's Last Exam (no tools),28.8,self-reported,,2026-09-29,https://huggingface.co/upstage/Solar-Open2-250B,Subset not stated
 Solar Open 2,Upstage,South Korea,open,GPQA Diamond,86.3,self-reported,,2026-09-29,https://huggingface.co/upstage/Solar-Open2-250B,
