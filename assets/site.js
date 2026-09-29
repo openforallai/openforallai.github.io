@@ -227,9 +227,9 @@ function chartCompute(data) {
     { name: "More expensive", color: "--pricier" },
   ]);
   const max = Math.max(10, ...items.map((x) => Math.abs(x.p)));
-  const half = 42; // % of the track each arm may use, leaving room for labels
   const rows = items.map(({ r, p, d, c }) => {
-    const w = (Math.abs(p) / max) * half;
+    // Each arm is half the track minus 3rem, so the value label always fits outside the bar.
+    const arm = `(50% - 3rem) * ${Math.abs(p) / max}`;
     const neg = p < 0;
     const tipText =
       `${r.gpu_type} on ${r.network || "?"}: ${formatPct(p)}` +
@@ -242,13 +242,13 @@ function chartCompute(data) {
         el("span", {
           class: `dbar ${neg ? "neg" : "pos"}`,
           style: neg
-            ? { right: "50%", width: `${w}%`, background: cssVar("--cheaper") }
-            : { left: "50%", width: `${w}%`, background: cssVar("--pricier") },
+            ? { right: "50%", width: `calc(${arm})`, background: cssVar("--cheaper") }
+            : { left: "50%", width: `calc(${arm})`, background: cssVar("--pricier") },
           "data-tip": tipText,
         }),
         el("span", {
           class: "dval",
-          style: neg ? { right: `calc(50% + ${w}% + 6px)` } : { left: `calc(50% + ${w}% + 6px)` },
+          style: neg ? { right: `calc(50% + ${arm} + 6px)` } : { left: `calc(50% + ${arm} + 6px)` },
         }, formatPct(p))
       )
     );
