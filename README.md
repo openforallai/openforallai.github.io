@@ -25,3 +25,7 @@ The data is kept in a Google Sheet and published as CSV. A nightly GitHub Action
 ## Corrections
 
 If a number is wrong or a source is missing, open an issue or a pull request with the source.
+
+## License
+
+The data in [`data/`](data/) is under [CC BY 4.0](data/LICENSE): use it for anything, including commercially, and credit "openforallai" with a link to this repository. The code is under the [Apache License 2.0](LICENSE).
