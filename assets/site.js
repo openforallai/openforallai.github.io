@@ -149,7 +149,7 @@ function chartFunding(data) {
   const target = document.getElementById("c1");
   const rows = data.rows.filter((r) => r.funding_source);
   if (!rows.length) {
-    target.replaceChildren(empty("No models yet. The first rows go in on 2026-10-01."));
+    target.replaceChildren(empty("No models yet. The first rows go in on 1 October 2026."));
     return;
   }
   const groups = new Map();
