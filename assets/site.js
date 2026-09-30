@@ -430,7 +430,9 @@ function lagSeries(rows, dates) {
   // The first closed model to reach that score.
   const first = closed.find((p) => p.y >= best.y) || null;
   const lag = first ? (best.x - first.x) / MONTH : null;
-  return { closed, open, best, first, lag };
+  // The best closed score, which open may not have reached at all.
+  const top = closed.reduce((a, p) => (p.y > a.y || (p.y === a.y && p.x < a.x) ? p : a));
+  return { closed, open, best, first, lag, top };
 }
 
 function lagText(s) {
@@ -523,6 +525,7 @@ function chartLag(bench, releases) {
     return;
   }
   const items = [];
+  const fmtScore = (v, unit) => (unit === "$" ? `$${Math.round(v).toLocaleString("en-US")}` : `${v.toFixed(1)}${unit === "%" ? "%" : ""}`);
   for (const [b, label, unit] of BENCH_ORDER) {
     const s = lagSeries(bench.rows.filter((r) => r.benchmark === b && num(r.score) != null), dates);
     if (s) items.push({ label, unit, s });
@@ -531,6 +534,25 @@ function chartLag(bench, releases) {
     summary.replaceChildren();
     target.replaceChildren(empty("No benchmark has release dates on both sides yet."));
     return;
+  }
+
+  // If every model came out within a short window, no longer lag can show up.
+  // Say so above the numbers rather than let them look like a finding.
+  // The lag is measured back to a closed model, so the closed models' dates
+  // set the limit.
+  const times = releases.rows.filter((r) => r.release_date && r.weights === "closed").map((r) => toTime(r.release_date));
+  const t0 = times.length ? Math.min(...times) : Date.now(), t1 = times.length ? Math.max(...times) : Date.now();
+  const windowMonths = (t1 - t0) / MONTH;
+  const note = document.getElementById("c5-note");
+  if (note) {
+    note.replaceChildren(
+      windowMonths < 18
+        ? el("p", { class: "warn" },
+            `Read with care: every closed model in the table came out between ${monthName(t0)} and ${monthName(t1)}, `,
+            `so no lag longer than about ${Math.max(1, Math.round(windowMonths))} months can show up here. `,
+            "Older models are being added; until then these numbers say more about which models are listed than about the real lag.")
+        : ""
+    );
   }
 
   // Summary: months behind per benchmark.
@@ -563,6 +585,11 @@ function chartLag(bench, releases) {
       ...items.map(({ label, unit, s }) =>
         el("div", { class: "bench" },
           el("div", { class: "bench-head" }, el("strong", {}, label), el("span", {}, lagText(s))),
+          s.best.y < s.top.y
+            ? el("p", { class: "lag-note" },
+                `Not yet reached by any open model: ${s.top.r.model}'s ${fmtScore(s.top.y, unit)}, `,
+                `released ${dayName(s.top.x)} (${Math.max(0, Math.round((Date.now() - s.top.x) / DAY))} days ago).`)
+            : null,
           el("div", { class: "plot" }, lagPlot(s, unit, label, width))
         )
       )

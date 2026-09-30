@@ -169,6 +169,8 @@ h2 { font-size: 1.125rem; margin: 0 0 4px; }
 .plot svg { display: block; overflow: visible; }
 .plot circle { cursor: default; }
 .ax { font-size: 11px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+.warn { margin: 0 0 16px; padding: 10px 12px; border-left: 3px solid var(--s4); background: var(--page); font-size: 0.875rem; color: var(--ink-2); }
+.lag-note { margin: 4px 0 0; font-size: 0.8125rem; color: var(--ink-2); }
 .lagline { stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 4 3; }
 
 /* Tables */
