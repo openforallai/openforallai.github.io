@@ -23,4 +23,4 @@ HyperCLOVAX-SEED-Think-32B,Naver Cloud,South Korea,32B,hyperclovax,2025-12-29,,c
 kanana-2-30b-a3b-instruct,Kakao,South Korea,30B (3B active),kanana-license,2025-12-19,,corporate,https://huggingface.co/kakaocorp/kanana-2-30b-a3b-instruct,2026-09-29
 INTELLECT-3,Prime Intellect,United States,106B (12B active),MIT,2025-11-26,,corporate,https://huggingface.co/PrimeIntellect/INTELLECT-3,2026-09-29
 Hermes-4.3-36B,Nous Research,United States,36B,Apache-2.0,2025-12-03,,crypto,https://huggingface.co/NousResearch/Hermes-4.3-36B,2026-09-29
-MiMo-V2-Flash,Xiaomi,China,309B (15B active),,,,corporate,https://github.com/XiaomiMiMo/MiMo-V2-Flash,2026-09-30
+MiMo-V2-Flash,Xiaomi,China,309B (15B active),MIT,,,corporate,https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash,2026-09-30
