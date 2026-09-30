@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compute · openforallai</title>
+  <meta name="description" content="Whether decentralized GPU compute is cheaper than centralized providers.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="page-head">
+    <nav class="site-nav" aria-label="Pages">
+      <a href="./">Home</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="funding.html">Who pays</a>
+      <a href="compute.html" aria-current="page">Compute</a>
+      <a href="korea.html">Korea</a>
+      <a href="data.html">All data</a>
+    </nav>
+    <h1>Compute</h1>
+    <p class="lede">Whether renting a GPU on a decentralized network is cheaper than at a centralized provider.</p>
+    <p class="meta" id="meta">Loading data…</p>
+  </header>
+
+  <main data-tables="decentralized_compute,token_vs_usage">
+    <section class="chart-card" aria-labelledby="c2-title">
+      <h2 id="c2-title">Is decentralized compute cheaper?</h2>
+      <p class="sub">GPU rental price on decentralized networks against the same GPU at a centralized provider. Left of zero is cheaper, right is more expensive. Latest price per GPU and network. Prices are what each network lists (Akash: the average of its offers; io.net: its VM price), and "free" is how many were available to rent when the price was read: a low price you can't rent is not a low price.</p>
+      <div class="legend" id="c2-legend"></div>
+      <div class="chart" id="c2"></div>
+    </section>
+
+    <section class="tables" aria-labelledby="data-title">
+      <h2 id="data-title">The data</h2>
+      <p class="sub">Each table is a CSV file in the repository, with its full history. Use it for anything, with credit, under <a href="data/LICENSE">CC BY 4.0</a>.</p>
+      <div id="tables" data-show="decentralized_compute,token_vs_usage"></div>
+    </section>
+  </main>
+
+  <footer class="page-foot">
+    <p>Found a wrong number or a missing source? <a href="https://github.com/openforallai/openforallai.github.io/issues">Open an issue</a> with the source.</p>
+    <p><a href="https://github.com/openforallai/openforallai.github.io">Source on GitHub</a> · Data <a href="data/LICENSE">CC BY 4.0</a> · Code <a href="LICENSE">Apache 2.0</a></p>
+  </footer>
+
+  <div class="tip" id="tip" role="tooltip" hidden></div>
+  <script src="assets/site.js"></script>
+</body>
+</html>

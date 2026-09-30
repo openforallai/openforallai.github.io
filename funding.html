@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Who pays · openforallai</title>
+  <meta name="description" content="Who funds open AI models, by funding source and country.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="page-head">
+    <nav class="site-nav" aria-label="Pages">
+      <a href="./">Home</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="funding.html" aria-current="page">Who pays</a>
+      <a href="compute.html">Compute</a>
+      <a href="korea.html">Korea</a>
+      <a href="data.html">All data</a>
+    </nav>
+    <h1>Who pays</h1>
+    <p class="lede">Who funds open models, and the money going into open-source AI.</p>
+    <p class="meta" id="meta">Loading data…</p>
+  </header>
+
+  <main data-tables="open_models,funding_events">
+    <section class="chart-card" aria-labelledby="c1-title">
+      <h2 id="c1-title">Who pays for open models</h2>
+      <p class="sub">Open-weights models by funding source, split by the country of the organization that made them.</p>
+      <div class="legend" id="c1-legend"></div>
+      <div class="chart" id="c1"></div>
+    </section>
+
+    <section class="tables" aria-labelledby="data-title">
+      <h2 id="data-title">The data</h2>
+      <p class="sub">Each table is a CSV file in the repository, with its full history. Use it for anything, with credit, under <a href="data/LICENSE">CC BY 4.0</a>.</p>
+      <div id="tables" data-show="open_models,funding_events"></div>
+    </section>
+  </main>
+
+  <footer class="page-foot">
+    <p>Found a wrong number or a missing source? <a href="https://github.com/openforallai/openforallai.github.io/issues">Open an issue</a> with the source.</p>
+    <p><a href="https://github.com/openforallai/openforallai.github.io">Source on GitHub</a> · Data <a href="data/LICENSE">CC BY 4.0</a> · Code <a href="LICENSE">Apache 2.0</a></p>
+  </footer>
+
+  <div class="tip" id="tip" role="tooltip" hidden></div>
+  <script src="assets/site.js"></script>
+</body>
+</html>

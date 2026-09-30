@@ -1,5 +1,8 @@
-// Reads data/*.csv from this repository and draws the three charts and the
-// tables. No libraries: the site has to keep working untouched for years.
+// Reads data/*.csv from this repository and draws the charts and tables on
+// whichever page loaded it. Each page lists the tables it needs in
+// <main data-tables="..."> ("*" for all) and the ones to show in
+// <div id="tables" data-show="...">. No libraries: the site has to keep
+// working untouched for years.
 
 const REPO = "openforallai/openforallai.github.io";
 
@@ -10,6 +13,7 @@ const TABLES = [
   { file: "korean_sovereign_ai", title: "Korean sovereign AI" },
   { file: "funding_events", title: "Open-source funding events" },
   { file: "benchmarks", title: "Benchmarks" },
+  { file: "model_releases", title: "Model release dates" },
 ];
 
 // Countries get fixed colors so a country keeps its color as rows are added.
@@ -57,6 +61,8 @@ function parseCSV(text) {
 
 async function load(file) {
   const res = await fetch(`data/${file}.csv`, { cache: "no-cache" });
+  // A table that doesn't exist yet is empty, not broken.
+  if (res.status === 404) return { columns: [], rows: [] };
   if (!res.ok) throw new Error(`${file}.csv: HTTP ${res.status}`);
   return parseCSV(await res.text());
 }
@@ -157,6 +163,7 @@ window.addEventListener("scroll", () => { tip.hidden = true; }, { passive: true 
 
 function chartFunding(data) {
   const target = document.getElementById("c1");
+  if (!target) return;
   const rows = data.rows.filter((r) => r.funding_source);
   if (!rows.length) {
     target.replaceChildren(empty("No models yet. The first rows go in on 1 October 2026."));
@@ -210,6 +217,7 @@ function chartFunding(data) {
 
 function chartCompute(data) {
   const target = document.getElementById("c2");
+  if (!target) return;
   const latest = new Map();
   for (const r of data.rows) {
     let p = num(r.premium_pct);
@@ -267,6 +275,7 @@ function chartCompute(data) {
 
 function chartKorea(data) {
   const target = document.getElementById("c3");
+  if (!target) return;
   const items = data.rows
     .map((r) => ({ r, v: num(r.budget_krw) }))
     .filter((x) => x.v != null && x.v > 0)
@@ -322,6 +331,7 @@ function pickBest(rows) {
 
 function chartGap(data) {
   const target = document.getElementById("c4");
+  if (!target) return;
   const rows = data.rows.filter((r) => num(r.score) != null);
   if (!rows.length) {
     target.replaceChildren(empty("No scores yet."));
@@ -377,6 +387,194 @@ function chartGap(data) {
     );
   }
   target.replaceChildren(...blocks);
+}
+
+// ---------- chart 5: how many months behind ----------
+
+const DAY = 864e5;
+const MONTH = 30.44 * DAY;
+const toTime = (s) => Date.parse(`${s}T00:00:00Z`);
+const monthName = (t) => new Date(t).toLocaleDateString("en-GB", { month: "short", year: "numeric", timeZone: "UTC" });
+const dayName = (t) => new Date(t).toISOString().slice(0, 10);
+
+const SVGNS = "http://www.w3.org/2000/svg";
+function svg(tag, attrs = {}, ...children) {
+  const node = document.createElementNS(SVGNS, tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "style") Object.assign(node.style, v);
+    else if (v != null) node.setAttribute(k, v);
+  }
+  for (const c of children.flat()) {
+    if (c == null) continue;
+    node.append(c instanceof Node ? c : document.createTextNode(String(c)));
+  }
+  return node;
+}
+
+// For one benchmark: every scored model with a release date, split closed/open.
+// Like the gap chart, independent scores win and self-reported ones are used
+// only where a side has nothing else.
+function lagSeries(rows, dates) {
+  const side = (w) => {
+    let pool = rows.filter((r) => r.weights === w && dates.has(r.model));
+    const indep = pool.filter((r) => r.measured_by !== "self-reported");
+    if (indep.length) pool = indep;
+    return pool
+      .map((r) => ({ r, x: toTime(dates.get(r.model)), y: num(r.score) }))
+      .sort((a, b) => a.x - b.x || b.y - a.y);
+  };
+  const closed = side("closed"), open = side("open");
+  if (!closed.length || !open.length) return null;
+  // The best open score, and the first open model to reach it.
+  const best = open.reduce((a, p) => (p.y > a.y || (p.y === a.y && p.x < a.x) ? p : a));
+  // The first closed model to reach that score.
+  const first = closed.find((p) => p.y >= best.y) || null;
+  const lag = first ? (best.x - first.x) / MONTH : null;
+  return { closed, open, best, first, lag };
+}
+
+function lagText(s) {
+  if (!s.first) return "Open leads: no closed model in the table has reached the best open score";
+  const m = Math.abs(s.lag);
+  const n = m < 0.95 ? `${Math.round(m * 30.44)} days` : `${m.toFixed(1)} months`;
+  if (s.lag >= 0) return `Open is ${n} behind`;
+  return `Open got there ${n} first`;
+}
+
+// Best-so-far as a step line, carried on to the right edge.
+function stepPath(points, sx, sy, xEnd) {
+  let d = "", max = -Infinity;
+  for (const p of points) {
+    if (p.y <= max) continue;
+    d += d ? ` H${sx(p.x)} V${sy(p.y)}` : `M${sx(p.x)} ${sy(p.y)}`;
+    max = p.y;
+  }
+  return d ? `${d} H${sx(xEnd)}` : "";
+}
+
+function lagPlot(s, unit, label, width) {
+  const h = 190, m = { t: 14, r: 12, b: 26, l: 44 };
+  const all = [...s.closed, ...s.open];
+  const x0 = Math.min(...all.map((p) => p.x)), x1 = Math.max(Date.now(), ...all.map((p) => p.x));
+  const pad = Math.max((x1 - x0) * 0.04, 10 * DAY);
+  const dx0 = x0 - pad, dx1 = x1 + pad;
+  // The axis covers the scores, not zero to the top: the steps are what matter.
+  const lo = Math.min(...all.map((p) => p.y)), hi = Math.max(...all.map((p) => p.y));
+  const span = Math.max(hi - lo, Math.abs(hi) * 0.05, 1);
+  const ymin = lo - span * 0.15;
+  const ymax = unit === "%" ? Math.max(hi, Math.min(100, hi + span * 0.15)) : hi + span * 0.15;
+  const sx = (t) => m.l + ((t - dx0) / (dx1 - dx0)) * (width - m.l - m.r);
+  const sy = (v) => h - m.b - ((v - ymin) / (ymax - ymin)) * (h - m.t - m.b);
+  const fmtY = (v) => (unit === "$" ? `$${(v / 1000).toFixed(1)}k` : `${Math.round(v)}`);
+  const fmtScore = (v) => (unit === "$" ? `$${Math.round(v).toLocaleString("en-US")}` : `${v.toFixed(1)}${unit === "%" ? "%" : ""}`);
+
+  const kids = [];
+  // Horizontal grid: four lines.
+  for (let i = 0; i <= 3; i++) {
+    const v = ymin + ((ymax - ymin) * i) / 3;
+    kids.push(svg("line", { x1: m.l, x2: width - m.r, y1: sy(v), y2: sy(v), style: { stroke: "var(--grid)" } }));
+    kids.push(svg("text", { x: m.l - 6, y: sy(v) + 4, "text-anchor": "end", class: "ax" }, fmtY(v)));
+  }
+  // Time ticks: every 3 months, or every month on a short span; fewer on a phone.
+  const spanMonths = (dx1 - dx0) / MONTH;
+  let step = spanMonths > 18 ? 6 : spanMonths > 6 ? 3 : 1;
+  if (width < 420 && step < 6 && spanMonths / step > 4) step *= 2;
+  const d = new Date(dx0);
+  let t = Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 1);
+  while (t < dx1) {
+    const md = new Date(t);
+    if (md.getUTCMonth() % step === 0) {
+      kids.push(svg("line", { x1: sx(t), x2: sx(t), y1: h - m.b, y2: h - m.b + 4, style: { stroke: "var(--axis)" } }));
+      kids.push(svg("text", { x: sx(t), y: h - 8, "text-anchor": "middle", class: "ax" }, monthName(t)));
+    }
+    t = Date.UTC(md.getUTCFullYear(), md.getUTCMonth() + 1, 1);
+  }
+  kids.push(svg("line", { x1: m.l, x2: width - m.r, y1: h - m.b, y2: h - m.b, style: { stroke: "var(--axis)" } }));
+
+  // The lag: a dashed line at the best open score, from the closed model that
+  // first reached it to the open model that did.
+  if (s.first) {
+    const a = sx(Math.min(s.first.x, s.best.x)), b = sx(Math.max(s.first.x, s.best.x)), y = sy(s.best.y);
+    kids.push(svg("line", { x1: a, x2: b, y1: y, y2: y, class: "lagline" }));
+  }
+  for (const [pts, color] of [[s.closed, "--s1"], [s.open, "--s2"]]) {
+    kids.push(svg("path", { d: stepPath(pts, sx, sy, x1), fill: "none", style: { stroke: `var(${color})`, strokeWidth: "2" } }));
+  }
+  for (const [pts, color, name] of [[s.closed, "--s1", "closed"], [s.open, "--s2", "open"]]) {
+    for (const p of pts) {
+      kids.push(svg("circle", {
+        cx: sx(p.x), cy: sy(p.y), r: 4.5,
+        style: { fill: `var(${color})`, stroke: "var(--surface)", strokeWidth: "1.5" },
+        "data-tip": `${p.r.model} (${p.r.org}, ${name}): ${fmtScore(p.y)}${p.r.measured_by === "self-reported" ? "*" : ""} on ${label}. Released ${dayName(p.x)}.`,
+      }));
+    }
+  }
+  return svg("svg", { width, height: h, viewBox: `0 0 ${width} ${h}`, role: "img", "aria-label": `${label}: ${lagText(s)}` }, kids);
+}
+
+function chartLag(bench, releases) {
+  const target = document.getElementById("c5");
+  if (!target) return;
+  const summary = document.getElementById("c5-summary");
+  const dates = new Map(releases.rows.filter((r) => r.release_date).map((r) => [r.model, r.release_date]));
+  if (!dates.size) {
+    summary.replaceChildren();
+    target.replaceChildren(empty("Release dates for every model are being added. The chart fills in when they are."));
+    return;
+  }
+  const items = [];
+  for (const [b, label, unit] of BENCH_ORDER) {
+    const s = lagSeries(bench.rows.filter((r) => r.benchmark === b && num(r.score) != null), dates);
+    if (s) items.push({ label, unit, s });
+  }
+  if (!items.length) {
+    summary.replaceChildren();
+    target.replaceChildren(empty("No benchmark has release dates on both sides yet."));
+    return;
+  }
+
+  // Summary: months behind per benchmark.
+  const behind = items.filter((it) => it.s.first && it.s.lag > 0);
+  const max = Math.max(1, ...behind.map((it) => it.s.lag));
+  summary.replaceChildren(
+    ...items.map(({ label, s }) => {
+      const on = s.first && s.lag > 0;
+      return el("div", { class: "row" },
+        el("div", { class: "row-label" }, label),
+        el("div", { class: "track" },
+          on ? el("div", {
+            class: "bar",
+            style: { width: `calc((100% - 7rem) * ${s.lag / max})`, background: cssVar("--bar") },
+            "data-tip": `${label}: best open ${s.best.r.model} (${dayName(s.best.x)}); closed first reached it with ${s.first.r.model} (${dayName(s.first.x)}).`,
+          }) : null,
+          el("span", { class: "bar-value" }, on ? `${s.lag.toFixed(1)} months` : lagText(s).replace(/:.*/, ""))
+        )
+      );
+    })
+  );
+
+  legend(document.getElementById("c5-legend"), [
+    { name: "Closed, best so far", color: "--s1" },
+    { name: "Open, best so far", color: "--s2" },
+  ]);
+  const draw = () => {
+    const width = Math.max(280, target.clientWidth);
+    target.replaceChildren(
+      ...items.map(({ label, unit, s }) =>
+        el("div", { class: "bench" },
+          el("div", { class: "bench-head" }, el("strong", {}, label), el("span", {}, lagText(s))),
+          el("div", { class: "plot" }, lagPlot(s, unit, label, width))
+        )
+      )
+    );
+  };
+  draw();
+  let last = target.clientWidth;
+  window.addEventListener("resize", () => {
+    if (Math.abs(target.clientWidth - last) < 8) return;
+    last = target.clientWidth;
+    draw();
+  });
 }
 
 // Benchmarks table: grouped by benchmark in the chart's order, best score first.
@@ -467,22 +665,35 @@ async function lastUpdated() {
 
 (async function main() {
   const meta = document.getElementById("meta");
-  const results = await Promise.allSettled(TABLES.map((t) => load(t.file)));
+  const want = (document.querySelector("main").dataset.tables || "*").split(",").map((x) => x.trim()).filter(Boolean);
+  const specs = want.includes("*") ? TABLES : TABLES.filter((t) => want.includes(t.file));
+  const results = await Promise.allSettled(specs.map((t) => load(t.file)));
   const data = Object.fromEntries(
-    TABLES.map((t, i) => [t.file, results[i].status === "fulfilled" ? results[i].value : { columns: [], rows: [], error: results[i].reason }])
+    specs.map((t, i) => [t.file, results[i].status === "fulfilled" ? results[i].value : { columns: [], rows: [], error: results[i].reason }])
   );
+  const none = { columns: [], rows: [] };
 
-  chartFunding(data.open_models);
-  chartCompute(data.decentralized_compute);
-  chartKorea(data.korean_sovereign_ai);
-  chartGap(data.benchmarks);
-  document.getElementById("tables").replaceChildren(...TABLES.map((t) => table(t, data[t.file])));
+  if (data.open_models) chartFunding(data.open_models);
+  if (data.decentralized_compute) chartCompute(data.decentralized_compute);
+  if (data.korean_sovereign_ai) chartKorea(data.korean_sovereign_ai);
+  if (data.benchmarks) {
+    chartGap(data.benchmarks);
+    chartLag(data.benchmarks, data.model_releases || none);
+  }
 
-  const total = TABLES.reduce((n, t) => n + data[t.file].rows.length, 0);
-  const failed = TABLES.filter((t) => data[t.file].error).map((t) => t.file);
+  const tables = document.getElementById("tables");
+  if (tables) {
+    const show = (tables.dataset.show || "*").split(",").map((x) => x.trim());
+    const list = show.includes("*") ? specs : specs.filter((t) => show.includes(t.file));
+    tables.replaceChildren(...list.map((t) => table(t, data[t.file])));
+  }
+
+  const total = specs.reduce((n, t) => n + data[t.file].rows.length, 0);
+  const failed = specs.filter((t) => data[t.file].error).map((t) => t.file);
   const updated = await lastUpdated();
   meta.textContent =
-    `${total} sourced ${total === 1 ? "row" : "rows"} across ${TABLES.length} tables` +
+    `${total} sourced ${total === 1 ? "row" : "rows"}` +
+    (specs.length > 1 ? ` across ${specs.length} tables` : "") +
     (updated ? ` · data last changed ${updated}` : "") +
     (failed.length ? ` · could not load: ${failed.join(", ")}` : "");
 })();

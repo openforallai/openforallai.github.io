@@ -9,45 +9,43 @@
 </head>
 <body>
   <header class="page-head">
+    <nav class="site-nav" aria-label="Pages">
+      <a href="./" aria-current="page">Home</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="funding.html">Who pays</a>
+      <a href="compute.html">Compute</a>
+      <a href="korea.html">Korea</a>
+      <a href="data.html">All data</a>
+    </nav>
     <h1>openforallai</h1>
     <p class="tagline">Open for All AI</p>
     <p class="lede">A public, sourced record of what open AI costs and who pays for it. Every row has a source. No source, no row.</p>
     <p class="meta" id="meta">Loading data…</p>
   </header>
 
-  <main>
-    <section class="chart-card" aria-labelledby="c1-title">
-      <h2 id="c1-title">Who pays for open models</h2>
-      <p class="sub">Open-weights models by funding source, split by the country of the organization that made them.</p>
-      <div class="legend" id="c1-legend"></div>
-      <div class="chart" id="c1"></div>
-    </section>
-
-    <section class="chart-card" aria-labelledby="c2-title">
-      <h2 id="c2-title">Is decentralized compute cheaper?</h2>
-      <p class="sub">GPU rental price on decentralized networks against the same GPU at a centralized provider. Left of zero is cheaper, right is more expensive. Latest price per GPU and network. Prices are what each network lists (Akash: the average of its offers; io.net: its VM price), and "free" is how many were available to rent when the price was read: a low price you can't rent is not a low price.</p>
-      <div class="legend" id="c2-legend"></div>
-      <div class="chart" id="c2"></div>
-    </section>
-
-    <section class="chart-card" aria-labelledby="c3-title">
-      <h2 id="c3-title">Korea's sovereign AI money</h2>
-      <p class="sub">Government AI programs by budget, with who received the money.</p>
-      <div class="chart" id="c3"></div>
-    </section>
-
-    <section class="chart-card" aria-labelledby="c4-title">
-      <h2 id="c4-title">How far behind are open models?</h2>
-      <p class="sub">The best closed, best open and best Korean model on each benchmark: the ones labs most often report, plus independent tests of agents doing real coding and real work. Scores are independent (Epoch AI and public leaderboards) wherever they exist; a maker's own number is used only where none does, and is marked *. Makers' own numbers tend to run higher than independent ones (Anthropic reports 60.9% on Humanity's Last Exam for Claude Fable 5.1; the independent leaderboard measured 46.5%), so a gap that mixes the two flatters the self-reported side.</p>
-      <div class="legend" id="c4-legend"></div>
-      <div class="chart" id="c4"></div>
-    </section>
-
-    <section class="tables" aria-labelledby="data-title">
-      <h2 id="data-title">The data</h2>
-      <p class="sub">Every table below is a CSV file in the repository, with its full history. Use it for anything, with credit, under <a href="data/LICENSE">CC BY 4.0</a>.</p>
-      <div id="tables"></div>
-    </section>
+  <main data-tables="*">
+    <nav class="cards" aria-label="Sections">
+      <a class="card" href="benchmarks.html">
+        <h2>Benchmarks</h2>
+        <p>How far open models trail closed ones, benchmark by benchmark, and how many months behind they are.</p>
+      </a>
+      <a class="card" href="funding.html">
+        <h2>Who pays</h2>
+        <p>Who funds open models, by funding source and country, and the money going into open-source AI.</p>
+      </a>
+      <a class="card" href="compute.html">
+        <h2>Compute</h2>
+        <p>Whether renting a GPU on a decentralized network is cheaper than at a centralized provider.</p>
+      </a>
+      <a class="card" href="korea.html">
+        <h2>Korea</h2>
+        <p>Korea's government money for sovereign AI, by program and recipient.</p>
+      </a>
+      <a class="card" href="data.html">
+        <h2>All data</h2>
+        <p>Every table as a CSV with its full history, free to use with credit.</p>
+      </a>
+    </nav>
   </main>
 
   <footer class="page-foot">
