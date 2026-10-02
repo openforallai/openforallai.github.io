@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All data · openforallai</title>
+  <meta name="description" content="Every openforallai table as a CSV, free to use with credit.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="page-head">
+    <nav class="site-nav" aria-label="Pages">
+      <a href="./">Home</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="funding.html">Who pays</a>
+      <a href="compute.html">Compute</a>
+      <a href="korea.html">Korea</a>
+      <a href="data.html" aria-current="page">All data</a>
+    </nav>
+    <h1>All data</h1>
+    <p class="lede">Every table on this site, as a CSV file with its full history in the repository. Use it for anything, with credit, under <a href="data/LICENSE">CC BY 4.0</a>. How rows are added and checked: <a href="https://github.com/openforallai/openforallai.github.io/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+    <p class="meta" id="meta">Loading data…</p>
+  </header>
+
+  <main data-tables="*">
+
+    <section class="tables" aria-labelledby="data-title">
+      <h2 id="data-title">The data</h2>
+      <p class="sub">Each table is a CSV file in the repository, with its full history. Use it for anything, with credit, under <a href="data/LICENSE">CC BY 4.0</a>.</p>
+      <div id="tables" data-show="*"></div>
+    </section>
+  </main>
+
+  <footer class="page-foot">
+    <p>Found a wrong number or a missing source? <a href="https://github.com/openforallai/openforallai.github.io/issues">Open an issue</a> with the source.</p>
+    <p><a href="https://github.com/openforallai/openforallai.github.io">Source on GitHub</a> · Data <a href="data/LICENSE">CC BY 4.0</a> · Code <a href="LICENSE">Apache 2.0</a></p>
+  </footer>
+
+  <div class="tip" id="tip" role="tooltip" hidden></div>
+  <script src="assets/site.js"></script>
+</body>
+</html>

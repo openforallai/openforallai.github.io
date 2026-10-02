@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Benchmarks · openforallai</title>
+  <meta name="description" content="How far open AI models trail closed ones, and how many months behind they are.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="page-head">
+    <nav class="site-nav" aria-label="Pages">
+      <a href="./">Home</a>
+      <a href="benchmarks.html" aria-current="page">Benchmarks</a>
+      <a href="funding.html">Who pays</a>
+      <a href="compute.html">Compute</a>
+      <a href="korea.html">Korea</a>
+      <a href="data.html">All data</a>
+    </nav>
+    <h1>Benchmarks</h1>
+    <p class="lede">How far open models trail closed ones, and how many months behind they are.</p>
+    <p class="meta" id="meta">Loading data…</p>
+  </header>
+
+  <main data-tables="benchmarks,model_releases">
+    <section class="chart-card" aria-labelledby="c4-title">
+      <h2 id="c4-title">How far behind are open models?</h2>
+      <p class="sub">The best closed, best open and best Korean model on each benchmark: the ones labs most often report, plus independent tests of agents doing real coding and real work. Scores are independent (Epoch AI and public leaderboards) wherever they exist; a maker's own number is used only where none does, and is marked *. Makers' own numbers tend to run higher than independent ones (Anthropic reports 60.9% on Humanity's Last Exam for Claude Fable 5.1; the independent leaderboard measured 46.5%), so a gap that mixes the two flatters the self-reported side.</p>
+      <div class="legend" id="c4-legend"></div>
+      <div class="chart" id="c4"></div>
+    </section>
+
+    <section class="chart-card" aria-labelledby="c5-title">
+      <h2 id="c5-title">How many months behind?</h2>
+      <p class="sub">For each benchmark: when the best open model came out, against when a closed model first reached the same score. The lines are the best score so far on each side; each dot is a model, placed at its release date. Release date means when a closed model was first publicly available, or when an open model's weights went public. Only models in this table count: an older closed model that isn't listed may have got there earlier, which would make the real lag longer.</p>
+      <div id="c5-note"></div>
+      <div class="chart" id="c5-summary"></div>
+      <div class="legend" id="c5-legend"></div>
+      <div class="chart" id="c5"></div>
+    </section>
+
+    <section class="tables" aria-labelledby="data-title">
+      <h2 id="data-title">The data</h2>
+      <p class="sub">Each table is a CSV file in the repository, with its full history. Use it for anything, with credit, under <a href="data/LICENSE">CC BY 4.0</a>.</p>
+      <div id="tables" data-show="benchmarks,model_releases"></div>
+    </section>
+  </main>
+
+  <footer class="page-foot">
+    <p>Found a wrong number or a missing source? <a href="https://github.com/openforallai/openforallai.github.io/issues">Open an issue</a> with the source.</p>
+    <p><a href="https://github.com/openforallai/openforallai.github.io">Source on GitHub</a> · Data <a href="data/LICENSE">CC BY 4.0</a> · Code <a href="LICENSE">Apache 2.0</a></p>
+  </footer>
+
+  <div class="tip" id="tip" role="tooltip" hidden></div>
+  <script src="assets/site.js"></script>
+</body>
+</html>

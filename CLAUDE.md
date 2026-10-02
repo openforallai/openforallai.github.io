@@ -20,4 +20,6 @@ The maintainer reviews everything from a phone, often with little time. Make eac
 
 ## Changing the site
 
-The site is plain HTML, CSS and JavaScript in `index.html` and `assets/`, with no libraries and no build step. Keep it that way. Don't mix site changes into a data pull request.
+The site is plain HTML, CSS and JavaScript, with no libraries and no build step. Keep it that way. Don't mix site changes into a data pull request.
+
+One page per topic: `index.html` (home, links to the rest), `benchmarks.html`, `funding.html`, `compute.html`, `korea.html`, `data.html` (every table). Each page lists the CSV files it loads in `<main data-tables="...">` and the tables it shows in `<div id="tables" data-show="...">`; `assets/site.js` draws only the charts whose element is on the page. The menu is copied into every page, so a new page means adding its link to all of them.

@@ -76,6 +76,29 @@ h1 { font-size: 2rem; margin: 0; letter-spacing: -0.01em; }
 .lede { margin: 0 0 8px; max-width: 60ch; }
 .meta { margin: 0; color: var(--muted); font-size: 0.875rem; }
 
+/* Page menu: wraps on a phone, no hamburger. */
+.site-nav { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0 0 28px; font-size: 0.9375rem; }
+.site-nav a { color: var(--ink-2); text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+.site-nav a:hover { color: var(--ink); }
+.site-nav a[aria-current="page"] { color: var(--ink); font-weight: 600; border-bottom-color: var(--ink); }
+.site-nav a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+/* Home: one card per page. */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin: 24px 0 40px; }
+.card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  color: inherit;
+  text-decoration: none;
+}
+.card:hover { border-color: var(--axis); }
+.card:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.card h2 { color: var(--link); }
+.card p { margin: 0; color: var(--ink-2); font-size: 0.9375rem; }
+
 h2 { font-size: 1.125rem; margin: 0 0 4px; }
 .sub { margin: 0 0 16px; color: var(--ink-2); font-size: 0.9375rem; max-width: 65ch; }
 
@@ -138,6 +161,17 @@ h2 { font-size: 1.125rem; margin: 0 0 4px; }
 .bench-group:first-child { margin-top: 4px; }
 .bench-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; font-size: 0.875rem; padding-bottom: 2px; border-bottom: 1px solid var(--axis); }
 .bench-head span { color: var(--ink-2); }
+
+/* Months-behind plots */
+#c5-summary:not(:empty) { margin-bottom: 20px; }
+#c5-summary .bar { border-radius: 0 4px 4px 0; }
+.plot { margin-top: 6px; }
+.plot svg { display: block; overflow: visible; }
+.plot circle { cursor: default; }
+.ax { font-size: 11px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+.warn { margin: 0 0 16px; padding: 10px 12px; border-left: 3px solid var(--s4); background: var(--page); font-size: 0.875rem; color: var(--ink-2); }
+.lag-note { margin: 4px 0 0; font-size: 0.8125rem; color: var(--ink-2); }
+.lagline { stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 4 3; }
 
 /* Tables */
 .tables { margin: 40px 0 24px; }
