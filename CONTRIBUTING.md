@@ -32,6 +32,16 @@ Corrections and new rows are welcome as pull requests. The bar is the same for e
 
 Which models: the best open and the best closed model of each organization by the Epoch Capabilities Index, plus Korean models, which Epoch rarely covers. Which benchmarks: the ones labs most often put in their release tables and that both open and closed labs report (counted across 22 release announcements, 2026-09-29): the Epoch Capabilities Index, GPQA Diamond, Humanity's Last Exam (no tools), Terminal-Bench 2.1, DeepSWE and Epoch's OTIS Mock AIME. Agentic work, added 2026-09-29 from independent leaderboards collected by Epoch: FrontierSWE (hard agentic coding), APEX-Agents (professional tasks) and Vending-Bench 2 (an agent running a business; score is the final balance in dollars). Independent scores are used wherever they exist; a maker's own number is used only where none does, and is always marked `self-reported`. A score whose variant isn't stated (for example, Humanity's Last Exam without saying whether tools were used) is left out, not guessed.
 
+**`model_releases.csv`**: when each model in `benchmarks.csv` came out. This table feeds the "how many months behind" chart.
+`model`, `org` and `weights`, spelled exactly as in `benchmarks.csv` (the check fails otherwise) · `release_date` · `source_url` · `notes`: where on the page the date is, other dates that differ (API access before the weights, Epoch's date, the Hugging Face repo's history) and anything a reader needs.
+
+`release_date` means:
+- **Closed models:** the day the model was first publicly available (API or app), per the maker's announcement.
+- **Open models:** the day the weights went public (Hugging Face upload or announcement of the weights). If API access came earlier, say so in `notes` with that date.
+- **Hosted versions of open models counted as closed** (e.g. Qwen 3.8 Max): the day the hosted model launched.
+- The date as the maker states it. The Hugging Face API's `createdAt` is when the repo was made, often privately before release; use it only as a cross-check and note any difference.
+- If only a news report gives the date, use it and write "date from news report" in `notes`. If no source states it, leave `release_date` empty and say why in `notes`. Don't guess.
+
 ## Before you open a pull request
 
-Run `python3 scripts/check_data.py`. It checks headers, required fields, number and date formats and source links. It also runs on every pull request.
+Run `python3 scripts/check_data.py`. It checks headers, required fields, number and date formats, source links, and that every model in `model_releases.csv` is in `benchmarks.csv`. It also runs on every pull request.

@@ -34,6 +34,7 @@ SCHEMA = {
         "model", "org", "country", "weights", "benchmark", "score", "measured_by",
         "setting", "date", "source_url", "notes",
     ],
+    "model_releases": ["model", "org", "weights", "release_date", "source_url", "notes"],
 }
 
 REQUIRED = {
@@ -46,6 +47,7 @@ REQUIRED = {
     "korean_sovereign_ai": ["program", "budget_krw", "date", "source_url"],
     "funding_events": ["project", "amount_usd", "funder_type", "date", "source_url"],
     "benchmarks": ["model", "org", "weights", "benchmark", "score", "measured_by", "date", "source_url"],
+    "model_releases": ["model", "org", "weights", "source_url"],
 }
 
 NUMBERS = {
@@ -105,10 +107,49 @@ def check(name, columns):
     return problems
 
 
+def read_keys(name, columns):
+    """(model, org, weights) of every row, or None if the file can't be read."""
+    path = DATA / f"{name}.csv"
+    if not path.exists():
+        return None
+    with path.open(newline="", encoding="utf-8") as f:
+        rows = list(csv.reader(f))
+    if not rows or rows[0] != columns:
+        return None
+    i = [columns.index(c) for c in ("model", "org", "weights")]
+    return [
+        (n, tuple(r[j] for j in i))
+        for n, r in enumerate(rows[1:], start=2)
+        if len(r) == len(columns)
+    ]
+
+
+def check_releases_join():
+    """Every model in model_releases.csv must match a model in benchmarks.csv
+    exactly (model, org and weights), so the site can join the two."""
+    releases = read_keys("model_releases", SCHEMA["model_releases"])
+    benchmarks = read_keys("benchmarks", SCHEMA["benchmarks"])
+    if releases is None or benchmarks is None:
+        return []
+    known = {k for _, k in benchmarks}
+    known_models = {k[0] for k in known}
+    problems = []
+    for n, (model, org, weights) in releases:
+        if (model, org, weights) in known:
+            continue
+        where = f"model_releases.csv line {n}"
+        if model in known_models:
+            problems.append(f"{where}: '{model}' is in benchmarks.csv, but with a different org or weights")
+        else:
+            problems.append(f"{where}: model '{model}' is not in benchmarks.csv")
+    return problems
+
+
 def main():
     problems = []
     for name, columns in SCHEMA.items():
         problems += check(name, columns)
+    problems += check_releases_join()
     extra = {p.stem for p in DATA.glob("*.csv")} - SCHEMA.keys()
     problems += [f"data/{e}.csv: not a known table" for e in sorted(extra)]
     for p in problems:
