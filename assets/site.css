@@ -161,6 +161,7 @@ h2 { font-size: 1.125rem; margin: 0 0 4px; }
 .bench-group:first-child { margin-top: 4px; }
 .bench-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; font-size: 0.875rem; padding-bottom: 2px; border-bottom: 1px solid var(--axis); }
 .bench-head span { color: var(--ink-2); }
+.bench-head small { color: var(--muted); font-weight: 400; margin-left: 6px; }
 
 /* Months-behind plots */
 #c5-summary:not(:empty) { margin-bottom: 20px; }
