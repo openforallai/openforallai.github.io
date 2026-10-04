@@ -42,6 +42,11 @@ Which models: the best open and the best closed model of each organization by th
 - The date as the maker states it. The Hugging Face API's `createdAt` is when the repo was made, often privately before release; use it only as a cross-check and note any difference.
 - If only a news report gives the date, use it and write "date from news report" in `notes`. If no source states it, leave `release_date` empty and say why in `notes`. Don't guess. For a closed model an empty date also means "not yet public" on the site, so look hard for a public date first.
 
+**`agent_run_costs.csv`**: what one run of one model on an agent benchmark costs, as the benchmark's authors report it. This table feeds the "what does one agent run cost" chart.
+`model`, `org` and `weights`, spelled exactly as in `benchmarks.csv` (the check fails otherwise, so a model has to be in `benchmarks.csv` first) · `benchmark`, named as in `benchmarks.csv` · `score`: the model's score in the same evaluation the cost comes from, which can differ from the current leaderboard · `usd_per_run`: US dollars for one run (one trial) of one task · `statistic`: `mean` or `median`, as the source states · `hours_per_run`, only if the source states it for that model · `date`: when the source was published, or when it was read if it gives no day; say which in `notes` · `source_url` · `notes`: the exact wording on the page.
+
+Only costs the benchmark's authors publish, with the same harness for every model. Don't compute a cost from token counts and price lists: the result depends on prices and caching the source doesn't state.
+
 ## Before you open a pull request
 
 Run `python3 scripts/check_data.py`. It checks headers, required fields, number and date formats, source links, and that every model in `model_releases.csv` is in `benchmarks.csv`. It also runs on every pull request.
