@@ -35,6 +35,10 @@ SCHEMA = {
         "setting", "date", "source_url", "notes",
     ],
     "model_releases": ["model", "org", "weights", "release_date", "source_url", "notes"],
+    "agent_run_costs": [
+        "model", "org", "weights", "benchmark", "score", "usd_per_run", "statistic",
+        "hours_per_run", "date", "source_url", "notes",
+    ],
 }
 
 REQUIRED = {
@@ -48,18 +52,20 @@ REQUIRED = {
     "funding_events": ["project", "amount_usd", "funder_type", "date", "source_url"],
     "benchmarks": ["model", "org", "weights", "benchmark", "score", "measured_by", "date", "source_url"],
     "model_releases": ["model", "org", "weights", "source_url"],
+    "agent_run_costs": ["model", "org", "weights", "benchmark", "usd_per_run", "statistic", "date", "source_url"],
 }
 
 NUMBERS = {
     "training_cost_usd_estimate", "usd_per_hour", "centralized_usd_per_hour", "premium_pct",
     "emissions_usd", "usage_value", "emissions_usd_per_usage_unit", "budget_krw", "amount_usd",
-    "available", "total", "score",
+    "available", "total", "score", "usd_per_run", "hours_per_run",
 }
 DATES = {"release_date", "added_date", "date"}
 CHOICES = {
     "funding_source": {"corporate", "corporate_gov", "state", "crypto", "donation"},
     "funder_type": {"corporate", "state", "crypto", "donation", "vc"},
     "weights": {"open", "closed"},
+    "statistic": {"mean", "median"},
 }
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -124,20 +130,21 @@ def read_keys(name, columns):
     ]
 
 
-def check_releases_join():
-    """Every model in model_releases.csv must match a model in benchmarks.csv
-    exactly (model, org and weights), so the site can join the two."""
-    releases = read_keys("model_releases", SCHEMA["model_releases"])
+def check_join(name):
+    """Every model in the table must match a model in benchmarks.csv exactly
+    (model, org and weights), so the site can join them and open/closed is
+    decided in one place."""
+    rows = read_keys(name, SCHEMA[name])
     benchmarks = read_keys("benchmarks", SCHEMA["benchmarks"])
-    if releases is None or benchmarks is None:
+    if rows is None or benchmarks is None:
         return []
     known = {k for _, k in benchmarks}
     known_models = {k[0] for k in known}
     problems = []
-    for n, (model, org, weights) in releases:
+    for n, (model, org, weights) in rows:
         if (model, org, weights) in known:
             continue
-        where = f"model_releases.csv line {n}"
+        where = f"{name}.csv line {n}"
         if model in known_models:
             problems.append(f"{where}: '{model}' is in benchmarks.csv, but with a different org or weights")
         else:
@@ -149,7 +156,8 @@ def main():
     problems = []
     for name, columns in SCHEMA.items():
         problems += check(name, columns)
-    problems += check_releases_join()
+    problems += check_join("model_releases")
+    problems += check_join("agent_run_costs")
     extra = {p.stem for p in DATA.glob("*.csv")} - SCHEMA.keys()
     problems += [f"data/{e}.csv: not a known table" for e in sorted(extra)]
     for p in problems:

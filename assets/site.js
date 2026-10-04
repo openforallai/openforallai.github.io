@@ -14,6 +14,7 @@ const TABLES = [
   { file: "funding_events", title: "Open-source funding events" },
   { file: "benchmarks", title: "Benchmarks" },
   { file: "model_releases", title: "Model release dates" },
+  { file: "agent_run_costs", title: "Agent run costs" },
 ];
 
 // Countries get fixed colors so a country keeps its color as rows are added.
@@ -633,6 +634,59 @@ function chartLag(bench, releases) {
   });
 }
 
+// ---------- chart 6: what one agent run costs ----------
+
+// One block per benchmark, in the gap chart's order; inside it, every model
+// the benchmark's authors costed, most expensive first, open and closed in
+// the gap chart's colors. Each block has its own scale: a 20-hour run and a
+// 20-minute one don't belong on one axis.
+function chartRunCosts(data) {
+  const target = document.getElementById("c6");
+  if (!target) return;
+  const rows = data.rows.filter((r) => num(r.usd_per_run) != null);
+  if (!rows.length) {
+    target.replaceChildren(empty("No run costs yet."));
+    return;
+  }
+  const sides = GROUPS.filter((g) => g.key !== "korea");
+  legend(document.getElementById("c6-legend"), sides.filter((g) => rows.some(g.test)));
+  const known = BENCH_ORDER.map(([b]) => b);
+  const benches = [...new Set(rows.map((r) => r.benchmark))].sort((a, b) => {
+    const i = known.indexOf(a), j = known.indexOf(b);
+    return (i < 0 ? 99 : i) - (j < 0 ? 99 : j) || a.localeCompare(b);
+  });
+  const money = (v) => (v < 10 ? `$${v.toFixed(2).replace(/\.?0+$/, "")}` : `$${Math.round(v).toLocaleString("en-US")}`);
+  target.replaceChildren(
+    ...benches.map((b) => {
+      const [, label = b, , , runLength] = BENCH_ORDER.find(([n]) => n === b) || [];
+      const inBench = rows.filter((r) => r.benchmark === b).sort((x, y) => num(y.usd_per_run) - num(x.usd_per_run));
+      const max = Math.max(...inBench.map((r) => num(r.usd_per_run)));
+      const stat = [...new Set(inBench.map((r) => r.statistic))].join(" / ");
+      return el("div", { class: "bench" },
+        el("div", { class: "bench-head" },
+          el("strong", {}, label, runLength ? el("small", {}, runLength) : null),
+          el("span", {}, `${capitalize(stat)} cost per run`)
+        ),
+        inBench.map((r) => {
+          const g = sides.find((s) => s.test(r)) || sides[0];
+          const score = num(r.score) != null ? ` · scored ${num(r.score)}%` : "";
+          return el("div", { class: "row" },
+            el("div", { class: "row-label" }, r.model, el("small", {}, capitalize(r.weights))),
+            el("div", { class: "track" },
+              el("div", {
+                class: "bar",
+                style: { width: `calc((100% - 7rem) * ${num(r.usd_per_run) / max})`, background: cssVar(g.color) },
+                "data-tip": `${r.model} (${r.org}): ${money(num(r.usd_per_run))} ${r.statistic} per run on ${label}${score}${r.hours_per_run ? `, ${r.hours_per_run} hours per run` : ""}.${r.notes ? ` ${r.notes}` : ""}`,
+              }),
+              el("span", { class: "bar-value" }, `${money(num(r.usd_per_run))}${score ? ` · ${num(r.score)}%` : ""}`)
+            )
+          );
+        })
+      );
+    })
+  );
+}
+
 // Benchmarks table: grouped by benchmark in the chart's order, best score first.
 function sortBenchmarks(rows) {
   const order = (b) => {
@@ -644,7 +698,7 @@ function sortBenchmarks(rows) {
 
 // ---------- tables ----------
 
-const NUMERIC = /(_usd|_krw|_pct|usd_per|params|value|amount)/;
+const NUMERIC = /(_usd|_krw|_pct|usd_per|hours_per|params|value|amount)/;
 
 function cell(c, v) {
   if (c.endsWith("source_url") && /^https?:\/\//.test(v)) {
@@ -732,6 +786,7 @@ async function lastUpdated() {
   if (data.open_models) chartFunding(data.open_models);
   if (data.decentralized_compute) chartCompute(data.decentralized_compute);
   if (data.korean_sovereign_ai) chartKorea(data.korean_sovereign_ai);
+  if (data.agent_run_costs) chartRunCosts(data.agent_run_costs);
   if (data.benchmarks) {
     chartGap(data.benchmarks, data.model_releases || none);
     chartLag(data.benchmarks, data.model_releases || none);

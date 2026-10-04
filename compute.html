@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Compute · openforallai</title>
-  <meta name="description" content="Whether decentralized GPU compute is cheaper than centralized providers.">
+  <meta name="description" content="Whether decentralized GPU compute is cheaper than centralized providers, and what one agent run costs.">
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -18,11 +18,11 @@
       <a href="data.html">All data</a>
     </nav>
     <h1>Compute</h1>
-    <p class="lede">Whether renting a GPU on a decentralized network is cheaper than at a centralized provider.</p>
+    <p class="lede">Whether renting a GPU on a decentralized network is cheaper than at a centralized provider, and what one run of an AI agent costs.</p>
     <p class="meta" id="meta">Loading data…</p>
   </header>
 
-  <main data-tables="decentralized_compute,token_vs_usage">
+  <main data-tables="decentralized_compute,token_vs_usage,agent_run_costs">
     <section class="chart-card" aria-labelledby="c2-title">
       <h2 id="c2-title">Is decentralized compute cheaper?</h2>
       <p class="sub">GPU rental price on decentralized networks against the same GPU at a centralized provider. Left of zero is cheaper, right is more expensive. Latest price per GPU and network. Prices are what each network lists (Akash: the average of its offers; io.net: its VM price), and "free" is how many were available to rent when the price was read: a low price you can't rent is not a low price.</p>
@@ -30,10 +30,17 @@
       <div class="chart" id="c2"></div>
     </section>
 
+    <section class="chart-card" aria-labelledby="c6-title">
+      <h2 id="c6-title">What does one agent run cost?</h2>
+      <p class="sub">What a benchmark's authors report spending on one run of each model, with the same harness for every model on that benchmark. Each benchmark has its own scale, and its own set of models: the ones its authors costed, at the time they ran it.</p>
+      <div class="legend" id="c6-legend"></div>
+      <div class="chart" id="c6"></div>
+    </section>
+
     <section class="tables" aria-labelledby="data-title">
       <h2 id="data-title">The data</h2>
       <p class="sub">Each table is a CSV file in the repository, with its full history. Use it for anything, with credit, under <a href="data/LICENSE">CC BY 4.0</a>.</p>
-      <div id="tables" data-show="decentralized_compute,token_vs_usage"></div>
+      <div id="tables" data-show="decentralized_compute,token_vs_usage,agent_run_costs"></div>
     </section>
   </main>
 

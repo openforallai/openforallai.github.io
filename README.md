@@ -10,6 +10,7 @@ Charts and tables: **[openforallai.github.io](https://openforallai.github.io)**
 |---|---|
 | [`data/benchmarks.csv`](data/benchmarks.csv) | One model's score on one benchmark, and who measured it: independent wherever possible, the maker's own number only where nothing else exists, marked `self-reported` |
 | [`data/model_releases.csv`](data/model_releases.csv) | When each benchmarked model came out (closed) or its weights went public (open), for the months-behind chart |
+| [`data/agent_run_costs.csv`](data/agent_run_costs.csv) | What one run of a model on an agent benchmark costs, as the benchmark's authors report it |
 | [`data/open_models.csv`](data/open_models.csv) | An open-weights model: who made it, where, its size and license, what training cost, and who paid |
 | [`data/decentralized_compute.csv`](data/decentralized_compute.csv) | A GPU price on a decentralized network, next to the same GPU at a centralized provider |
 | [`data/token_vs_usage.csv`](data/token_vs_usage.csv) | A month of a network's token emissions in dollars, against a usage number you can measure |
