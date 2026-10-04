@@ -2,12 +2,14 @@
 
 **Open for All AI.** A public, sourced record of what open AI costs and who pays for it.
 
-Work in progress. The first rows go in on 2026-10-01.
+Charts and tables: **[openforallai.github.io](https://openforallai.github.io)**
 
 ## What it tracks
 
 | File | What each row is |
 |---|---|
+| [`data/benchmarks.csv`](data/benchmarks.csv) | One model's score on one benchmark, and who measured it: independent wherever possible, the maker's own number only where nothing else exists, marked `self-reported` |
+| [`data/model_releases.csv`](data/model_releases.csv) | When each benchmarked model came out (closed) or its weights went public (open), for the months-behind chart |
 | [`data/open_models.csv`](data/open_models.csv) | An open-weights model: who made it, where, its size and license, what training cost, and who paid |
 | [`data/decentralized_compute.csv`](data/decentralized_compute.csv) | A GPU price on a decentralized network, next to the same GPU at a centralized provider |
 | [`data/token_vs_usage.csv`](data/token_vs_usage.csv) | A month of a network's token emissions in dollars, against a usage number you can measure |

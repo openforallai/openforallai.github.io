@@ -304,15 +304,17 @@ function chartKorea(data) {
 
 // ---------- chart 4: how far behind are open models ----------
 
-// [benchmark in the data, label, unit, group heading]
+// [benchmark in the data, label, unit, group heading, run length if the benchmark states it]
+// Run lengths: DeepSWE median 15-20 min per trial (deepswe.datacurve.ai/blog/deepswe);
+// FrontierSWE 20-hour budget, average 8.6 to ~17 h per trial by model (frontierswe.com/blog/v2).
 const BENCH_ORDER = [
   ["Epoch Capabilities Index", "Epoch Capabilities Index", "points", "Overall"],
   ["GPQA Diamond", "GPQA Diamond", "%", "Knowledge and reasoning"],
   ["Humanity's Last Exam (no tools)", "Humanity's Last Exam (no tools)", "%", "Knowledge and reasoning"],
   ["OTIS Mock AIME 2024-2025", "Mock AIME (Epoch)", "%", "Knowledge and reasoning"],
   ["Terminal-Bench 2.1", "Terminal-Bench 2.1", "%", "Agentic coding"],
-  ["DeepSWE", "DeepSWE", "%", "Agentic coding"],
-  ["FrontierSWE", "FrontierSWE", "%", "Agentic coding"],
+  ["DeepSWE", "DeepSWE", "%", "Agentic coding", "runs of under an hour"],
+  ["FrontierSWE", "FrontierSWE", "%", "Agentic coding", "runs of up to 20 hours"],
   ["APEX-Agents", "APEX-Agents (professional tasks)", "%", "Agentic tasks"],
   ["Vending-Bench 2", "Vending-Bench 2 (runs a business, final balance)", "$", "Agentic tasks"],
 ];
@@ -340,7 +342,7 @@ function chartGap(data) {
   legend(document.getElementById("c4-legend"), GROUPS.filter((g) => rows.some(g.test)));
   const blocks = [];
   let heading = null;
-  for (const [bench, label, unit, group] of BENCH_ORDER) {
+  for (const [bench, label, unit, group, runLength] of BENCH_ORDER) {
     const inBench = rows.filter((r) => r.benchmark === bench);
     if (!inBench.length) continue;
     const best = GROUPS.map((g) => {
@@ -369,7 +371,7 @@ function chartGap(data) {
       `${unit === "$" ? money(num(r.score)) : num(r.score).toFixed(1)}${unit === "%" ? "%" : ""}${r.measured_by === "self-reported" ? "*" : ""}`;
     blocks.push(
       el("div", { class: "bench" },
-        el("div", { class: "bench-head" }, el("strong", {}, label), el("span", {}, gap)),
+        el("div", { class: "bench-head" }, el("strong", {}, label, runLength ? el("small", {}, runLength) : null), el("span", {}, gap)),
         best.map(({ g, r }) =>
           el("div", { class: "row" },
             el("div", { class: "row-label" }, g.name, el("small", {}, r.model)),
@@ -430,15 +432,20 @@ function lagSeries(rows, dates) {
   // The first closed model to reach that score.
   const first = closed.find((p) => p.y >= best.y) || null;
   const lag = first ? (best.x - first.x) / MONTH : null;
+  // If the first closed model to reach it is also the earliest closed model with
+  // a score here, an earlier closed model may have got there without being tested,
+  // so the lag is a floor, not a measurement.
+  const atLeast = !!first && first === closed[0] && lag > 0;
   // The best closed score, which open may not have reached at all.
   const top = closed.reduce((a, p) => (p.y > a.y || (p.y === a.y && p.x < a.x) ? p : a));
-  return { closed, open, best, first, lag, top };
+  return { closed, open, best, first, lag, top, atLeast };
 }
 
 function lagText(s) {
   if (!s.first) return "Open leads: no closed model in the table has reached the best open score";
   const m = Math.abs(s.lag);
   const n = m < 0.95 ? `${Math.round(m * 30.44)} days` : `${m.toFixed(1)} months`;
+  if (s.atLeast) return `Open is at least ${n} behind: ${s.first.r.model} is the earliest closed model tested here, and an older one may have got there first`;
   if (s.lag >= 0) return `Open is ${n} behind`;
   return `Open got there ${n} first`;
 }
@@ -567,9 +574,9 @@ function chartLag(bench, releases) {
           on ? el("div", {
             class: "bar",
             style: { width: `calc((100% - 7rem) * ${s.lag / max})`, background: cssVar("--bar") },
-            "data-tip": `${label}: best open ${s.best.r.model} (${dayName(s.best.x)}); closed first reached it with ${s.first.r.model} (${dayName(s.first.x)}).`,
+            "data-tip": `${label}: best open ${s.best.r.model} (${dayName(s.best.x)}); closed first reached it with ${s.first.r.model} (${dayName(s.first.x)}).${s.atLeast ? " That is the earliest closed model tested here, so the real lag may be longer." : ""}`,
           }) : null,
-          el("span", { class: "bar-value" }, on ? `${s.lag.toFixed(1)} months` : lagText(s).replace(/:.*/, ""))
+          el("span", { class: "bar-value" }, on ? `${s.atLeast ? "≥ " : ""}${s.lag.toFixed(1)} months` : lagText(s).replace(/:.*/, ""))
         )
       );
     })
