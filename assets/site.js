@@ -638,8 +638,8 @@ function chartLag(bench, releases) {
 
 // One block per benchmark, in the gap chart's order; inside it, every model
 // the benchmark's authors costed, most expensive first, open and closed in
-// the gap chart's colors. Each block has its own scale: a 20-hour run and a
-// 20-minute one don't belong on one axis.
+// the gap chart's colors. All blocks share one scale, so a short run and a
+// long one can be compared at a glance; the dollar value is printed on each bar.
 function chartRunCosts(data) {
   const target = document.getElementById("c6");
   if (!target) return;
@@ -655,12 +655,12 @@ function chartRunCosts(data) {
     const i = known.indexOf(a), j = known.indexOf(b);
     return (i < 0 ? 99 : i) - (j < 0 ? 99 : j) || a.localeCompare(b);
   });
+  const max = Math.max(...rows.map((r) => num(r.usd_per_run)));
   const money = (v) => (v < 10 ? `$${v.toFixed(2).replace(/\.?0+$/, "")}` : `$${Math.round(v).toLocaleString("en-US")}`);
   target.replaceChildren(
     ...benches.map((b) => {
       const [, label = b, , , runLength] = BENCH_ORDER.find(([n]) => n === b) || [];
       const inBench = rows.filter((r) => r.benchmark === b).sort((x, y) => num(y.usd_per_run) - num(x.usd_per_run));
-      const max = Math.max(...inBench.map((r) => num(r.usd_per_run)));
       const stat = [...new Set(inBench.map((r) => r.statistic))].join(" / ");
       return el("div", { class: "bench" },
         el("div", { class: "bench-head" },
