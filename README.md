@@ -17,6 +17,14 @@ Charts and tables: **[openforallai.github.io](https://openforallai.github.io)**
 | [`data/korean_sovereign_ai.csv`](data/korean_sovereign_ai.csv) | A Korean government AI program: budget, recipient, and what it produced |
 | [`data/funding_events.csv`](data/funding_events.csv) | Money going into an open-source AI project, and from what kind of funder |
 
+## Reports
+
+Reports on where open AI stands, built from this data.
+
+| Report | Published |
+|---|---|
+| [0. Open weights are not enough](reports/2026-10-04-open-weights-are-not-enough.md) | 4 Oct 2026 · [X](https://x.com/kdaniel_03/status/2106696735846449255) · [Substack](https://danielkim442616.substack.com/p/open-weights-are-not-enough) |
+
 ## The one rule
 
 Every row has a `source_url`. No source, no row.
