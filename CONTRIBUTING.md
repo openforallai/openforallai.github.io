@@ -36,11 +36,11 @@ Which models: the best open and the best closed model of each organization by th
 `model`, `org` and `weights`, spelled exactly as in `benchmarks.csv` (the check fails otherwise) · `release_date` · `source_url` · `notes`: where on the page the date is, other dates that differ (API access before the weights, Epoch's date, the Hugging Face repo's history) and anything a reader needs.
 
 `release_date` means:
-- **Closed models:** the day the model was first publicly available (API or app), per the maker's announcement.
+- **Closed models:** the day the model was first publicly available (API or app), per the maker's announcement. If it has been announced but isn't publicly available yet (e.g. a limited release to selected customers), leave `release_date` empty and say so in `notes`: the site then keeps it out of "best closed" and shows it as "not yet public". Fill in the date the day it becomes public.
 - **Open models:** the day the weights went public (Hugging Face upload or announcement of the weights). If API access came earlier, say so in `notes` with that date.
 - **Hosted versions of open models counted as closed** (e.g. Qwen 3.8 Max): the day the hosted model launched.
 - The date as the maker states it. The Hugging Face API's `createdAt` is when the repo was made, often privately before release; use it only as a cross-check and note any difference.
-- If only a news report gives the date, use it and write "date from news report" in `notes`. If no source states it, leave `release_date` empty and say why in `notes`. Don't guess.
+- If only a news report gives the date, use it and write "date from news report" in `notes`. If no source states it, leave `release_date` empty and say why in `notes`. Don't guess. For a closed model an empty date also means "not yet public" on the site, so look hard for a public date first.
 
 ## Before you open a pull request
 

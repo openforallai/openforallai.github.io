@@ -331,24 +331,45 @@ function pickBest(rows) {
   return pool.reduce((a, b) => (num(b.score) > num(a.score) ? b : a), pool[0]);
 }
 
-function chartGap(data) {
+// A closed model with an empty release date in model_releases.csv has been
+// announced but isn't publicly available (CONTRIBUTING.md). It doesn't count
+// as "best closed", because nobody can use it yet; the gap chart shows it on
+// its own line when it would otherwise lead.
+function notYetPublic(releases) {
+  return new Set(releases.rows.filter((r) => r.weights === "closed" && !r.release_date).map((r) => r.model));
+}
+
+function chartGap(data, releases) {
   const target = document.getElementById("c4");
   if (!target) return;
+  const unreleased = notYetPublic(releases);
   const rows = data.rows.filter((r) => num(r.score) != null);
+  const PREVIEW = { key: "preview", name: "Closed, not yet public", color: "--other", test: (r) => unreleased.has(r.model) };
   if (!rows.length) {
     target.replaceChildren(empty("No scores yet."));
     return;
   }
-  legend(document.getElementById("c4-legend"), GROUPS.filter((g) => rows.some(g.test)));
+  const isPublic = (r) => !unreleased.has(r.model);
+  let previewShown = false;
   const blocks = [];
   let heading = null;
   for (const [bench, label, unit, group, runLength] of BENCH_ORDER) {
     const inBench = rows.filter((r) => r.benchmark === bench);
     if (!inBench.length) continue;
     const best = GROUPS.map((g) => {
-      const pool = inBench.filter(g.test);
+      const pool = inBench.filter((r) => g.test(r) && isPublic(r));
       return pool.length ? { g, r: pickBest(pool) } : null;
     }).filter(Boolean);
+    // An unreleased closed model is shown only where it beats every public one.
+    const previews = inBench.filter(PREVIEW.test);
+    const pc = best.find((b) => b.g.key === "closed");
+    if (previews.length) {
+      const p = pickBest(previews);
+      if (!pc || num(p.score) > num(pc.r.score)) {
+        best.splice(1, 0, { g: PREVIEW, r: p });
+        previewShown = true;
+      }
+    }
     const max = Math.max(...best.map((b) => num(b.r.score)));
     if (group !== heading) {
       blocks.push(el("h3", { class: "bench-group" }, group));
@@ -388,6 +409,7 @@ function chartGap(data) {
       )
     );
   }
+  legend(document.getElementById("c4-legend"), [...GROUPS.filter((g) => rows.some((r) => g.test(r) && isPublic(r))), ...(previewShown ? [PREVIEW] : [])]);
   target.replaceChildren(...blocks);
 }
 
@@ -711,7 +733,7 @@ async function lastUpdated() {
   if (data.decentralized_compute) chartCompute(data.decentralized_compute);
   if (data.korean_sovereign_ai) chartKorea(data.korean_sovereign_ai);
   if (data.benchmarks) {
-    chartGap(data.benchmarks);
+    chartGap(data.benchmarks, data.model_releases || none);
     chartLag(data.benchmarks, data.model_releases || none);
   }
 
