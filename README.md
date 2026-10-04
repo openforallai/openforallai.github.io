@@ -19,7 +19,7 @@ Charts and tables: **[openforallai.github.io](https://openforallai.github.io)**
 
 ## Reports
 
-One report a month on where open AI stands, built from this data.
+Reports on where open AI stands, built from this data.
 
 | Report | Published |
 |---|---|
