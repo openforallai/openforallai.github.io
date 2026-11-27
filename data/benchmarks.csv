@@ -146,7 +146,6 @@ GPT-5.2,OpenAI,United States,closed,Humanity's Last Exam (no tools),27.8,"HLE le
 GPT-5.2,OpenAI,United States,closed,OTIS Mock AIME 2024-2025,96.1,Epoch AI,xhigh,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.2,OpenAI,United States,closed,Vending-Bench 2,3591,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
 GPT-5.2 Pro,OpenAI,United States,closed,Epoch Capabilities Index,157.3,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 157.35
-GPT-5.3 Codex,OpenAI,United States,closed,Epoch Capabilities Index,156.8,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.3 Codex,OpenAI,United States,closed,Vending-Bench 2,5940,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
 GPT-5.4,OpenAI,United States,closed,Epoch Capabilities Index,157.9,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 157.89
 GPT-5.4,OpenAI,United States,closed,GPQA Diamond,93.3,Epoch AI,xhigh,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
