@@ -1,20 +1,20 @@
 model,org,country,weights,benchmark,score,measured_by,setting,date,source_url,notes
-GPT-6 Astra,OpenAI,United States,closed,Epoch Capabilities Index,166.6,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
-Claude Fable 5.1,Anthropic,United States,closed,Epoch Capabilities Index,165.0,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
-Gemini 3.7 Flash,Google DeepMind,United States,closed,Epoch Capabilities Index,157.7,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
-Kimi K3,Moonshot,China,open,Epoch Capabilities Index,157.7,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
-Muse Spark 1.3,Meta AI,United States,closed,Epoch Capabilities Index,156.9,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
-Qwen 3.8 Max,Alibaba,China,closed,Epoch Capabilities Index,156.7,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,"Hosted official version of the open Qwen3.8-2.4T-A95B, with vision, 1M context and built-in tools added; counted as closed, as Epoch does"
-Grok 4.6,xAI,United States,closed,Epoch Capabilities Index,156.5,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
-GLM-5.3,Z.ai (Zhipu AI),China,open,Epoch Capabilities Index,155.6,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,"Epoch lists it as closed weights; its weights have been public on Hugging Face (zai-org/GLM-5.3, glm-5.3 license) since 2026-08-28"
-DeepSeek V4 Pro 0813,DeepSeek,China,open,Epoch Capabilities Index,155.4,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
-GLM-5.3-Flash,Z.ai (Zhipu AI),China,open,Epoch Capabilities Index,151.9,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
-Inkling-Small,Thinking Machines,United States,open,Epoch Capabilities Index,150.1,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
-Qwen 3.8 27B,Alibaba,China,open,Epoch Capabilities Index,149.4,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
-MiniMax-M3,MiniMax,China,open,Epoch Capabilities Index,147.0,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
-Nemotron 3 Ultra,NVIDIA,United States,open,Epoch Capabilities Index,146.2,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
-Gemma 4 31B IT,Google DeepMind,United States,open,Epoch Capabilities Index,142.7,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
-Mistral Medium 3.5,Mistral AI,France,open,Epoch Capabilities Index,141.4,Epoch AI,,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
+GPT-6 Astra,OpenAI,United States,closed,Epoch Capabilities Index,169.2,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 169.21
+Claude Fable 5.1,Anthropic,United States,closed,Epoch Capabilities Index,167.1,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 167.06
+Gemini 3.7 Flash,Google DeepMind,United States,closed,Epoch Capabilities Index,158.4,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 158.4
+Kimi K3,Moonshot,China,open,Epoch Capabilities Index,158.6,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 158.61
+Muse Spark 1.3,Meta AI,United States,closed,Epoch Capabilities Index,158.2,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 158.24
+Qwen 3.8 Max,Alibaba,China,closed,Epoch Capabilities Index,157.6,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,"Hosted official version of the open Qwen3.8-2.4T-A95B, with vision, 1M context and built-in tools added; counted as closed, as Epoch does; Epoch gives 157.55"
+Grok 4.6,xAI,United States,closed,Epoch Capabilities Index,157.8,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 157.82
+GLM-5.3,Z.ai (Zhipu AI),China,open,Epoch Capabilities Index,157.1,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,"Epoch lists it as closed weights; its weights have been public on Hugging Face (zai-org/GLM-5.3, glm-5.3 license) since 2026-08-28; Epoch gives 157.1"
+DeepSeek V4 Pro 0813,DeepSeek,China,open,Epoch Capabilities Index,156.0,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 155.96
+GLM-5.3-Flash,Z.ai (Zhipu AI),China,open,Epoch Capabilities Index,153.8,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 153.77
+Inkling-Small,Thinking Machines,United States,open,Epoch Capabilities Index,150.8,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 150.77
+Qwen 3.8 27B,Alibaba,China,open,Epoch Capabilities Index,152.6,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 152.63
+MiniMax-M3,MiniMax,China,open,Epoch Capabilities Index,147.8,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 147.84
+Nemotron 3 Ultra,NVIDIA,United States,open,Epoch Capabilities Index,147.0,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 147.02
+Gemma 4 31B IT,Google DeepMind,United States,open,Epoch Capabilities Index,144.1,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 144.12
+Mistral Medium 3.5,Mistral AI,France,open,Epoch Capabilities Index,141.6,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 141.58
 GPT-6 Astra,OpenAI,United States,closed,GPQA Diamond,95.8,Epoch AI,max,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
 Gemini 3.7 Flash,Google DeepMind,United States,closed,GPQA Diamond,94.8,Epoch AI,high,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
 Grok 4.6,xAI,United States,closed,GPQA Diamond,94.0,Epoch AI,high,2026-09-29,https://epoch.ai/data/benchmark_data.zip,
@@ -106,103 +106,102 @@ GLM-5,Z.ai (Zhipu AI),China,open,Vending-Bench 2,4432,"Andon Labs Vending-Bench 
 DeepSeek-V4-Pro,DeepSeek,China,open,Vending-Bench 2,3285,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-09-29,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
 MiniMax-M3,MiniMax,China,open,Vending-Bench 2,2158,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-09-29,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
 gpt-oss-120b,OpenAI,United States,open,Vending-Bench 2,-22,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-09-29,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
-Gemini 3.1 Pro,Google DeepMind,United States,closed,Epoch Capabilities Index,154.8,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+Gemini 3.1 Pro,Google DeepMind,United States,closed,Epoch Capabilities Index,156.2,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 156.25
 Gemini 3.1 Pro,Google DeepMind,United States,closed,GPQA Diamond,94.4,Epoch AI,high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Gemini 3.1 Pro,Google DeepMind,United States,closed,Humanity's Last Exam (no tools),46.4,"HLE leaderboard, collected by Epoch AI",thinking high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Gemini 3.1 Pro,Google DeepMind,United States,closed,OTIS Mock AIME 2024-2025,95.6,Epoch AI,high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Gemini 3.1 Pro,Google DeepMind,United States,closed,APEX-Agents,35.3,"Mercor APEX-Agents leaderboard, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Gemini 3.1 Pro,Google DeepMind,United States,closed,Vending-Bench 2,3774,"Andon Labs Vending-Bench 2, collected by Epoch AI",customtools endpoint,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Separate API endpoint gemini-3.1-pro-preview-customtools; the standard gemini-3.1-pro-preview scored 911; Score is the simulated business balance in US dollars at the end of the run
-Gemini 3 Pro,Google DeepMind,United States,closed,Epoch Capabilities Index,152.9,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+Gemini 3 Pro,Google DeepMind,United States,closed,Epoch Capabilities Index,153.0,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 153.04
 Gemini 3 Pro,Google DeepMind,United States,closed,GPQA Diamond,92.6,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Gemini 3 Pro,Google DeepMind,United States,closed,Humanity's Last Exam (no tools),37.5,"HLE leaderboard, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Gemini 3 Pro,Google DeepMind,United States,closed,OTIS Mock AIME 2024-2025,91.4,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Gemini 3 Pro,Google DeepMind,United States,closed,Vending-Bench 2,5478,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
-Gemini 2.5 Pro (Mar 2025),Google DeepMind,United States,closed,Epoch Capabilities Index,144.2,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+Gemini 2.5 Pro (Mar 2025),Google DeepMind,United States,closed,Epoch Capabilities Index,144.0,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 143.98
 Gemini 2.5 Pro (Mar 2025),Google DeepMind,United States,closed,GPQA Diamond,83.8,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Epoch version gemini-2.5-pro-exp-03-25
 Gemini 2.5 Pro (Mar 2025),Google DeepMind,United States,closed,Humanity's Last Exam (no tools),18.2,"HLE leaderboard, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Epoch version gemini-2.5-pro-exp-03-25
-o1,OpenAI,United States,closed,Epoch Capabilities Index,141.9,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+o1,OpenAI,United States,closed,Epoch Capabilities Index,141.2,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 141.16
 o1,OpenAI,United States,closed,GPQA Diamond,76.8,Epoch AI,high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,API snapshot o1-2024-12-17
 o1,OpenAI,United States,closed,Humanity's Last Exam (no tools),8.0,"HLE leaderboard, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,API snapshot o1-2024-12-17
 o1,OpenAI,United States,closed,OTIS Mock AIME 2024-2025,73.3,Epoch AI,high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,API snapshot o1-2024-12-17
-o3,OpenAI,United States,closed,Epoch Capabilities Index,146.9,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+o3,OpenAI,United States,closed,Epoch Capabilities Index,147.0,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 147.02
 o3,OpenAI,United States,closed,GPQA Diamond,81.8,Epoch AI,high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 o3,OpenAI,United States,closed,Humanity's Last Exam (no tools),20.3,"HLE leaderboard, collected by Epoch AI",high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 o3,OpenAI,United States,closed,OTIS Mock AIME 2024-2025,84.4,Epoch AI,medium,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
-o3-pro,OpenAI,United States,closed,Epoch Capabilities Index,147.4,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
-GPT-5,OpenAI,United States,closed,Epoch Capabilities Index,150.0,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+o3-pro,OpenAI,United States,closed,Epoch Capabilities Index,147.5,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 147.47
+GPT-5,OpenAI,United States,closed,Epoch Capabilities Index,150.0,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 150.0
 GPT-5,OpenAI,United States,closed,GPQA Diamond,86.2,Epoch AI,high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5,OpenAI,United States,closed,Humanity's Last Exam (no tools),25.3,"HLE leaderboard, collected by Epoch AI",high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5,OpenAI,United States,closed,OTIS Mock AIME 2024-2025,91.4,Epoch AI,high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
-GPT-5 Pro,OpenAI,United States,closed,Epoch Capabilities Index,150.3,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+GPT-5 Pro,OpenAI,United States,closed,Epoch Capabilities Index,151.3,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 151.3
 GPT-5 Pro,OpenAI,United States,closed,Humanity's Last Exam (no tools),31.6,"HLE leaderboard, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
-GPT-5.1,OpenAI,United States,closed,Epoch Capabilities Index,149.7,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+GPT-5.1,OpenAI,United States,closed,Epoch Capabilities Index,150.9,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 150.93
 GPT-5.1,OpenAI,United States,closed,GPQA Diamond,87.6,Epoch AI,high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.1,OpenAI,United States,closed,Humanity's Last Exam (no tools),23.7,"HLE leaderboard, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.1,OpenAI,United States,closed,OTIS Mock AIME 2024-2025,88.6,Epoch AI,high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.1,OpenAI,United States,closed,Vending-Bench 2,1473,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
-GPT-5.2,OpenAI,United States,closed,Epoch Capabilities Index,153.5,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+GPT-5.2,OpenAI,United States,closed,Epoch Capabilities Index,154.5,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 154.53
 GPT-5.2,OpenAI,United States,closed,GPQA Diamond,91.4,Epoch AI,xhigh,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.2,OpenAI,United States,closed,Humanity's Last Exam (no tools),27.8,"HLE leaderboard, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.2,OpenAI,United States,closed,OTIS Mock AIME 2024-2025,96.1,Epoch AI,xhigh,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.2,OpenAI,United States,closed,Vending-Bench 2,3591,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
-GPT-5.2 Pro,OpenAI,United States,closed,Epoch Capabilities Index,155.4,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
-GPT-5.3 Codex,OpenAI,United States,closed,Epoch Capabilities Index,156.8,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+GPT-5.2 Pro,OpenAI,United States,closed,Epoch Capabilities Index,157.3,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 157.35
 GPT-5.3 Codex,OpenAI,United States,closed,Vending-Bench 2,5940,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
-GPT-5.4,OpenAI,United States,closed,Epoch Capabilities Index,156.9,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+GPT-5.4,OpenAI,United States,closed,Epoch Capabilities Index,157.9,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 157.89
 GPT-5.4,OpenAI,United States,closed,GPQA Diamond,93.3,Epoch AI,xhigh,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.4,OpenAI,United States,closed,Humanity's Last Exam (no tools),36.2,"HLE leaderboard, collected by Epoch AI",xhigh,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.4,OpenAI,United States,closed,OTIS Mock AIME 2024-2025,97.8,Epoch AI,high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.4,OpenAI,United States,closed,DeepSWE,51.8,"Datacurve DeepSWE leaderboard, collected by Epoch AI","xhigh, mini-swe-agent",2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.4,OpenAI,United States,closed,APEX-Agents,52.4,"Mercor APEX-Agents leaderboard, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.4,OpenAI,United States,closed,Vending-Bench 2,6144,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
-GPT-5.4 Pro,OpenAI,United States,closed,Epoch Capabilities Index,159.1,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+GPT-5.4 Pro,OpenAI,United States,closed,Epoch Capabilities Index,160.3,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 160.31
 GPT-5.4 Pro,OpenAI,United States,closed,GPQA Diamond,94.6,Epoch AI,xhigh,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.4 Pro,OpenAI,United States,closed,Humanity's Last Exam (no tools),44.3,"HLE leaderboard, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
-GPT-5.5,OpenAI,United States,closed,Epoch Capabilities Index,159.2,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+GPT-5.5,OpenAI,United States,closed,Epoch Capabilities Index,160.2,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 160.19
 GPT-5.5,OpenAI,United States,closed,GPQA Diamond,94.0,Epoch AI,xhigh,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Epoch's run is labelled gpt-5.5-pre-release (run 2026-04-24); Epoch counts it as GPT-5.5
 GPT-5.5,OpenAI,United States,closed,OTIS Mock AIME 2024-2025,100.0,Epoch AI,xhigh,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Epoch's run is labelled gpt-5.5-pre-release (run 2026-04-24); Epoch counts it as GPT-5.5
 GPT-5.5,OpenAI,United States,closed,DeepSWE,67.0,"Datacurve DeepSWE leaderboard, collected by Epoch AI","xhigh, mini-swe-agent",2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.5,OpenAI,United States,closed,APEX-Agents,55.1,"Mercor APEX-Agents leaderboard, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-5.5,OpenAI,United States,closed,Vending-Bench 2,7524,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
-GPT-5.5 Pro,OpenAI,United States,closed,Epoch Capabilities Index,162.4,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+GPT-5.5 Pro,OpenAI,United States,closed,Epoch Capabilities Index,162.8,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 162.78
 GPT-5.5 Pro,OpenAI,United States,closed,GPQA Diamond,93.9,Epoch AI,xhigh,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Epoch's run is labelled gpt-5.5-pro-pre-release (run 2026-04-24); Epoch counts it as GPT-5.5 Pro
 GPT-5.5 Pro,OpenAI,United States,closed,OTIS Mock AIME 2024-2025,100.0,Epoch AI,xhigh,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Epoch's run is labelled gpt-5.5-pro-pre-release (run 2026-04-24); Epoch counts it as GPT-5.5 Pro
-Claude Sonnet 4.5,Anthropic,United States,closed,Epoch Capabilities Index,146.8,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+Claude Sonnet 4.5,Anthropic,United States,closed,Epoch Capabilities Index,147.6,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 147.56
 Claude Sonnet 4.5,Anthropic,United States,closed,GPQA Diamond,82.3,Epoch AI,59K thinking budget,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Sonnet 4.5,Anthropic,United States,closed,Humanity's Last Exam (no tools),13.7,"HLE leaderboard, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Sonnet 4.5,Anthropic,United States,closed,OTIS Mock AIME 2024-2025,77.8,Epoch AI,59K thinking budget,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Sonnet 4.5,Anthropic,United States,closed,Vending-Bench 2,3839,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
-Claude Opus 4.5,Anthropic,United States,closed,Epoch Capabilities Index,150.1,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+Claude Opus 4.5,Anthropic,United States,closed,Epoch Capabilities Index,151.9,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 151.87
 Claude Opus 4.5,Anthropic,United States,closed,GPQA Diamond,86.0,Epoch AI,32K thinking budget,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.5,Anthropic,United States,closed,Humanity's Last Exam (no tools),25.2,"HLE leaderboard, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.5,Anthropic,United States,closed,OTIS Mock AIME 2024-2025,86.1,Epoch AI,32K thinking budget,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.5,Anthropic,United States,closed,Vending-Bench 2,4967,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
-Claude Opus 4.6,Anthropic,United States,closed,Epoch Capabilities Index,155.3,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+Claude Opus 4.6,Anthropic,United States,closed,Epoch Capabilities Index,156.3,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 156.33
 Claude Opus 4.6,Anthropic,United States,closed,GPQA Diamond,90.5,Epoch AI,32K thinking budget,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.6,Anthropic,United States,closed,Humanity's Last Exam (no tools),34.4,"HLE leaderboard, collected by Epoch AI",max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.6,Anthropic,United States,closed,OTIS Mock AIME 2024-2025,94.4,Epoch AI,64K thinking budget,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.6,Anthropic,United States,closed,APEX-Agents,46.3,"Mercor APEX-Agents leaderboard, collected by Epoch AI",max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.6,Anthropic,United States,closed,Vending-Bench 2,8018,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
-Claude Opus 4.7,Anthropic,United States,closed,Epoch Capabilities Index,156.3,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+Claude Opus 4.7,Anthropic,United States,closed,Epoch Capabilities Index,157.5,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 157.49
 Claude Opus 4.7,Anthropic,United States,closed,GPQA Diamond,90.2,Epoch AI,xhigh,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.7,Anthropic,United States,closed,Humanity's Last Exam (no tools),36.2,"HLE leaderboard, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.7,Anthropic,United States,closed,OTIS Mock AIME 2024-2025,97.8,Epoch AI,xhigh,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.7,Anthropic,United States,closed,APEX-Agents,49.2,"Mercor APEX-Agents leaderboard, collected by Epoch AI",max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.7,Anthropic,United States,closed,Vending-Bench 2,10937,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
-Claude Opus 4.8,Anthropic,United States,closed,Epoch Capabilities Index,158.3,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+Claude Opus 4.8,Anthropic,United States,closed,Epoch Capabilities Index,159.9,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 159.9
 Claude Opus 4.8,Anthropic,United States,closed,GPQA Diamond,91.0,Epoch AI,max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.8,Anthropic,United States,closed,OTIS Mock AIME 2024-2025,98.3,Epoch AI,max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.8,Anthropic,United States,closed,DeepSWE,59.0,"Datacurve DeepSWE leaderboard, collected by Epoch AI","max, mini-swe-agent",2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.8,Anthropic,United States,closed,APEX-Agents,48.9,"Mercor APEX-Agents leaderboard, collected by Epoch AI",max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 4.8,Anthropic,United States,closed,Vending-Bench 2,5787,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
-Claude Fable 5,Anthropic,United States,closed,Epoch Capabilities Index,162.2,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+Claude Fable 5,Anthropic,United States,closed,Epoch Capabilities Index,164.2,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 164.18
 Claude Fable 5,Anthropic,United States,closed,GPQA Diamond,85.9,Epoch AI,max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Fable 5,Anthropic,United States,closed,OTIS Mock AIME 2024-2025,100.0,Epoch AI,high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Fable 5,Anthropic,United States,closed,DeepSWE,69.9,"Datacurve DeepSWE leaderboard, collected by Epoch AI","xhigh, mini-swe-agent",2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Fable 5,Anthropic,United States,closed,FrontierSWE,47.0,"FrontierSWE leaderboard, collected by Epoch AI","max, proximus harness",2026-10-02,https://epoch.ai/data/benchmark_data.zip,Mean of 5 runs across 34 tasks
 Claude Fable 5,Anthropic,United States,closed,APEX-Agents,63.6,"Mercor APEX-Agents leaderboard, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Fable 5,Anthropic,United States,closed,Vending-Bench 2,5680,"Andon Labs Vending-Bench 2, collected by Epoch AI",high,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
-Claude Opus 5,Anthropic,United States,closed,Epoch Capabilities Index,162.9,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+Claude Opus 5,Anthropic,United States,closed,Epoch Capabilities Index,164.7,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 164.72
 Claude Opus 5,Anthropic,United States,closed,GPQA Diamond,93.9,Epoch AI,max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 5,Anthropic,United States,closed,OTIS Mock AIME 2024-2025,98.9,Epoch AI,max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 5,Anthropic,United States,closed,DeepSWE,73.6,"Datacurve DeepSWE leaderboard, collected by Epoch AI","max, mini-swe-agent",2026-10-02,https://epoch.ai/data/benchmark_data.zip,
@@ -211,7 +210,7 @@ Claude Opus 5,Anthropic,United States,closed,APEX-Agents,65.8,"Mercor APEX-Agent
 Claude Opus 5,Anthropic,United States,closed,Vending-Bench 2,11182,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
 Gemini 4 Argon,Google DeepMind,United States,closed,DeepSWE,77.9,self-reported,"highest thinking setting, mini-swe-agent",2026-10-02,https://storage.googleapis.com/deepmind-media/gemini/gemini_4_argon_model_evaluation.pdf,"DeepSWE v1.1, self computed by Google; not on the Datacurve leaderboard as of 2026-10-02. Limited release to vetted cyber defenders (Fairwind Program)"
 Gemini 4 Argon,Google DeepMind,United States,closed,FrontierSWE,55.0,FrontierSWE leaderboard,proximus harness,2026-10-02,https://www.frontierswe.com/,"FrontierSWE V2, mean@5 across 34 tasks; leaderboard footnote: cache hit rate is much lower due to a non-production setting. Not yet in Epoch's data"
-Claude Opus 5.5,Anthropic,United States,closed,Epoch Capabilities Index,167.4,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,Epoch gives 167.35
+Claude Opus 5.5,Anthropic,United States,closed,Epoch Capabilities Index,168.7,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 168.67
 Claude Opus 5.5,Anthropic,United States,closed,GPQA Diamond,90.6,Epoch AI,max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 5.5,Anthropic,United States,closed,Humanity's Last Exam (no tools),64.4,self-reported,max effort,2026-10-02,https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf,System card Table 8.1.A (67.7 with tools); averaged over five trials; subset not stated. Not on the Scale HLE leaderboard as of 2026-10-02
 Claude Opus 5.5,Anthropic,United States,closed,OTIS Mock AIME 2024-2025,100.0,Epoch AI,max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
@@ -219,7 +218,7 @@ Claude Opus 5.5,Anthropic,United States,closed,DeepSWE,74.2,self-reported,max ef
 Claude Opus 5.5,Anthropic,United States,closed,FrontierSWE,62.3,"FrontierSWE leaderboard, collected by Epoch AI","max, proximus harness",2026-10-02,https://epoch.ai/data/benchmark_data.zip,Mean of 5 runs across 34 tasks
 Claude Opus 5.5,Anthropic,United States,closed,APEX-Agents,73.5,"Mercor APEX-Agents leaderboard, collected by Epoch AI",max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Opus 5.5,Anthropic,United States,closed,Vending-Bench 2,9235,Andon Labs Vending-Bench 2,,2026-10-02,https://andonlabs.com/evals/vending-bench-2,"Score is the simulated business balance in US dollars at the end of the run; read from the leaderboard, not yet in Epoch's data"
-Claude Sonnet 5.5,Anthropic,United States,closed,Epoch Capabilities Index,165.2,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+Claude Sonnet 5.5,Anthropic,United States,closed,Epoch Capabilities Index,166.6,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 166.6
 Claude Sonnet 5.5,Anthropic,United States,closed,GPQA Diamond,95.6,Epoch AI,max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 Claude Sonnet 5.5,Anthropic,United States,closed,Humanity's Last Exam (no tools),56.9,self-reported,max effort,2026-10-02,https://www-cdn.anthropic.com/870c8f525702625d2c62fc6dd04c857e3250bec1/Claude%20Sonnet%205.5%20System%20Card.pdf,System card Table 8.1.A (64.5 with tools); averaged over 5 trials; subset not stated. Not on the Scale HLE leaderboard as of 2026-10-02
 Claude Sonnet 5.5,Anthropic,United States,closed,OTIS Mock AIME 2024-2025,100.0,Epoch AI,max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
@@ -235,7 +234,16 @@ Grok 4.7,xAI,United States,closed,Vending-Bench 2,10537,Andon Labs Vending-Bench
 GPT-6.1 Sol,OpenAI,United States,closed,GPQA Diamond,95.4,Epoch AI,max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-6.1 Sol,OpenAI,United States,closed,OTIS Mock AIME 2024-2025,100.0,Epoch AI,max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
 GPT-6.1 Sol,OpenAI,United States,closed,APEX-Agents,60.0,"Mercor APEX-Agents leaderboard, collected by Epoch AI",max,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
-DeepSeek V4.1 Flash,DeepSeek,China,open,Epoch Capabilities Index,155.0,Epoch AI,,2026-10-02,https://epoch.ai/data/benchmark_data.zip,
+DeepSeek V4.1 Flash,DeepSeek,China,open,Epoch Capabilities Index,157.0,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 157.01
+Claude Fable 5.2,Anthropic,United States,closed,Epoch Capabilities Index,173.4,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 173.4
+GPT-6.2 Astra,OpenAI,United States,closed,Epoch Capabilities Index,172.8,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 172.82
+Gemini 4 Carbon,Google DeepMind,United States,closed,Epoch Capabilities Index,169.7,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 169.68
+Muse Wonder,Meta AI,United States,closed,Epoch Capabilities Index,161.7,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 161.74
+Kimi K3.1 Pro,Moonshot,China,open,Epoch Capabilities Index,161.2,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 161.2
+DeepSeek V4.1 Flash 1017,DeepSeek,China,open,Epoch Capabilities Index,159.4,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 159.41
+Muse Spark Open,Meta AI,United States,open,Epoch Capabilities Index,155.5,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 155.47
+Mistral Large 4,Mistral AI,France,open,Epoch Capabilities Index,154.6,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 154.57
+Beam 1.0,Reflection,United States,open,Epoch Capabilities Index,150.8,Epoch AI,,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch gives 150.84
 DeepSeek V4.1 Flash,DeepSeek,China,open,GPQA Diamond,90.9,self-reported,max effort (reasoning_effort=100),2026-10-02,https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash,Not in Epoch's GPQA Diamond data as of 2026-10-02
 DeepSeek V4.1 Flash,DeepSeek,China,open,Humanity's Last Exam (no tools),36.8,self-reported,max effort (reasoning_effort=100),2026-10-02,https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash,Full set; 39.1 on the text-only subset. Listed apart from HLE w/ tools (63.9)
 DeepSeek V4.1 Flash,DeepSeek,China,open,Terminal-Bench 2.1,90.6,self-reported,"max effort, DeepSeek Harness Minimal mode",2026-10-02,https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash,"N=3, without network access. On the same page with other harnesses: 90.3 mini-SWE, 88.0 Claude Code, 84.1 Codex. Not on the Terminal-Bench 2.1 leaderboard as of 2026-10-02"
