@@ -243,3 +243,32 @@ DeepSeek V4.1 Flash,DeepSeek,China,open,DeepSWE,74.2,self-reported,"max effort, 
 DeepSeek V4.1 Flash,DeepSeek,China,open,APEX-Agents,39.5,Mercor APEX-Agents leaderboard,max,2026-10-02,https://www.mercor.com/apex/apex-agents-leaderboard/,"APEX-Agents 1.1, Pass@1, loop_truncated_tools_agent harness; read from the leaderboard, not yet in Epoch's data"
 Gemini 4 Argon,Google DeepMind,United States,closed,APEX-Agents,82.2,Mercor APEX-Agents leaderboard,high,2026-10-02,https://www.mercor.com/apex/apex-agents-leaderboard/,"APEX-Agents 1.1, Pass@1, loop_truncated_tools_agent harness; read from the leaderboard, not yet in Epoch's data. Argon is not yet publicly available (see model_releases.csv)"
 Gemini 4 Argon,Google DeepMind,United States,closed,Vending-Bench 2,13718,Andon Labs Vending-Bench 2,,2026-10-02,https://andonlabs.com/evals/vending-bench-2,"Score is the simulated business balance in US dollars at the end of the run; read from the leaderboard, not yet in Epoch's data"
+GPT-6.2 Astra,OpenAI,United States,closed,GPQA Diamond,96.8,Epoch AI,max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Gemini 4 Carbon,Google DeepMind,United States,closed,GPQA Diamond,96.5,Epoch AI,high,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Kimi K3.1 Pro,Moonshot,China,open,GPQA Diamond,94.2,Epoch AI,max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Run by Epoch through Together AI (Epoch model version: kimi-k3.1-pro-together_max)
+Claude Fable 5.2,Anthropic,United States,closed,GPQA Diamond,93.9,Epoch AI,max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,"Epoch also lists a 'fallback' run at 96.0; the main run is used, as for earlier Claude models"
+DeepSeek V4.1 Flash 1017,DeepSeek,China,open,GPQA Diamond,93.2,Epoch AI,max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Mistral Large 4,Mistral AI,France,open,GPQA Diamond,90.2,Epoch AI,high,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch model version: mistral-large-4-0-oss_high (the open-weights release)
+Muse Spark Open,Meta AI,United States,open,GPQA Diamond,88.6,Epoch AI,xhigh,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Kimi K3.1 Pro,Moonshot,China,open,OTIS Mock AIME 2024-2025,100.0,Epoch AI,max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Run by Epoch through Together AI (Epoch model version: kimi-k3.1-pro-together_max)
+Gemini 4 Carbon,Google DeepMind,United States,closed,OTIS Mock AIME 2024-2025,100.0,Epoch AI,high,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+GPT-6.2 Astra,OpenAI,United States,closed,OTIS Mock AIME 2024-2025,100.0,Epoch AI,max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Claude Fable 5.2,Anthropic,United States,closed,OTIS Mock AIME 2024-2025,99.7,Epoch AI,max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Mistral Large 4,Mistral AI,France,open,OTIS Mock AIME 2024-2025,99.4,Epoch AI,high,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Epoch model version: mistral-large-4-0-oss_high (the open-weights release)
+DeepSeek V4.1 Flash 1017,DeepSeek,China,open,OTIS Mock AIME 2024-2025,99.4,Epoch AI,max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Muse Wonder,Meta AI,United States,closed,OTIS Mock AIME 2024-2025,99.4,Epoch AI,max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Muse Spark Open,Meta AI,United States,open,OTIS Mock AIME 2024-2025,98.1,Epoch AI,xhigh,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Claude Fable 5.2,Anthropic,United States,closed,FrontierSWE,69.9,"FrontierSWE leaderboard, collected by Epoch AI","max, proximus harness",2026-11-27,https://epoch.ai/data/benchmark_data.zip,Mean of 5 runs (Mean@5)
+Gemini 4 Carbon,Google DeepMind,United States,closed,FrontierSWE,61.2,"FrontierSWE leaderboard, collected by Epoch AI","high, proximus harness",2026-11-27,https://epoch.ai/data/benchmark_data.zip,Mean of 5 runs (Mean@5)
+Muse Wonder,Meta AI,United States,closed,FrontierSWE,40.2,"FrontierSWE leaderboard, collected by Epoch AI","max, proximus harness",2026-11-27,https://epoch.ai/data/benchmark_data.zip,Mean of 5 runs (Mean@5)
+Gemini 4 Carbon,Google DeepMind,United States,closed,APEX-Agents,84.2,"Mercor APEX-Agents leaderboard, collected by Epoch AI",,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Claude Fable 5.2,Anthropic,United States,closed,APEX-Agents,80.1,"Mercor APEX-Agents leaderboard, collected by Epoch AI",,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+GPT-6.2 Astra,OpenAI,United States,closed,APEX-Agents,72.2,"Mercor APEX-Agents leaderboard, collected by Epoch AI",max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+DeepSeek V4.1 Flash 1017,DeepSeek,China,open,APEX-Agents,69.8,"Mercor APEX-Agents leaderboard, collected by Epoch AI",max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Muse Wonder,Meta AI,United States,closed,APEX-Agents,66.1,"Mercor APEX-Agents leaderboard, collected by Epoch AI",max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Kimi K3.1 Pro,Moonshot,China,open,APEX-Agents,65.5,"Mercor APEX-Agents leaderboard, collected by Epoch AI",,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Beam 1.0,Reflection,United States,open,APEX-Agents,48.8,"Mercor APEX-Agents leaderboard, collected by Epoch AI",max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Muse Spark Open,Meta AI,United States,open,APEX-Agents,33.4,"Mercor APEX-Agents leaderboard, collected by Epoch AI",,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
+Gemini 4 Carbon,Google DeepMind,United States,closed,Vending-Bench 2,16484,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
+Claude Fable 5.2,Anthropic,United States,closed,Vending-Bench 2,9628,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
+Muse Wonder,Meta AI,United States,closed,Vending-Bench 2,9432,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
