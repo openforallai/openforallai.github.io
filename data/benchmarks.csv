@@ -267,7 +267,6 @@ GPT-6.2 Astra,OpenAI,United States,closed,APEX-Agents,72.2,"Mercor APEX-Agents l
 DeepSeek V4.1 Flash 1017,DeepSeek,China,open,APEX-Agents,69.8,"Mercor APEX-Agents leaderboard, collected by Epoch AI",max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
 Muse Wonder,Meta AI,United States,closed,APEX-Agents,66.1,"Mercor APEX-Agents leaderboard, collected by Epoch AI",max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
 Kimi K3.1 Pro,Moonshot,China,open,APEX-Agents,65.5,"Mercor APEX-Agents leaderboard, collected by Epoch AI",,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
-Mistral Large 4,Mistral AI,France,open,APEX-Agents,51.6,"Mercor APEX-Agents leaderboard, collected by Epoch AI",high,2026-11-27,https://epoch.ai/data/benchmark_data.zip,"Epoch model version: mistral-large-4-0_high (Mistral's API version, dated 2026-10-06 by Epoch; no score for the open-weights release yet)"
 Beam 1.0,Reflection,United States,open,APEX-Agents,48.8,"Mercor APEX-Agents leaderboard, collected by Epoch AI",max,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
 Muse Spark Open,Meta AI,United States,open,APEX-Agents,33.4,"Mercor APEX-Agents leaderboard, collected by Epoch AI",,2026-11-27,https://epoch.ai/data/benchmark_data.zip,
 Gemini 4 Carbon,Google DeepMind,United States,closed,Vending-Bench 2,16484,"Andon Labs Vending-Bench 2, collected by Epoch AI",,2026-11-27,https://epoch.ai/data/benchmark_data.zip,Score is the simulated business balance in US dollars at the end of the run
