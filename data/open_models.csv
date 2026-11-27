@@ -26,3 +26,6 @@ Hermes-4.3-36B,Nous Research,United States,36B,Apache-2.0,2025-12-03,,crypto,htt
 MiMo-V2-Flash,Xiaomi,China,309B (15B active),MIT,,,corporate,https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash,2026-09-30
 DeepSeek-V4.1-Flash-1017,DeepSeek,China,,MIT,2026-10-17,,corporate,https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017,2026-11-27
 Muse-Spark-Open-816B-A42B,Meta,United States,816B (42B active),Muse Model License,2026-10-15,,corporate,https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B,2026-11-27
+Kimi-K3.1-Pro,Moonshot AI,China,2.8T (104B active),kimi-k3.1-pro,2026-11-02,,corporate,https://huggingface.co/moonshotai/Kimi-K3.1-Pro,2026-11-27
+Mistral-Large-4-1T-A52B,Mistral AI,France,1T (49B active),Mistral Ecosystem Open-Weight License,2026-10-29,,corporate,https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B,2026-11-27
+Beam-1.0-501B-A23B,Reflection,United States,501.3B (23.4B active),Apache-2.0,2026-10-16,,corporate,https://huggingface.co/reflection/Beam-1.0-501B-A23B,2026-11-27
